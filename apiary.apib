@@ -372,8 +372,8 @@ The Customer object holds all information about a customer. The customer resourc
 | `phone`            | String   | Employees phone number |
 | `avatar_url`       | String   | `Readonly` The avatar url |
 | `tax_region_id`    | Integer  | The associated tax region. See [TaxRegion](#reference/tax_region) |
-| `properties`       | Array    | See [Property](#reference/property) |
-| `notes`            | Array    | See [Notes](#reference/notes) |
+| `properties`       | Array    | The customer's custom properties. See [Property](#reference/property) |
+| `notes`            | Array    | The customer's notes. See [Notes](#reference/notes) |
 | `archived`         | Boolean  | `Readonly` Whether the customer is archived |
 | `created_at`       | DateTime | `Readonly` When the company was created |
 | `updated_at`       | DateTime | `Readonly` When the company was last updated |
@@ -539,6 +539,18 @@ The Customer object holds all information about a customer. The customer resourc
 A property can be attached to:
 - a [Customer](#reference/customer)
 - a [ProductGroup](#reference/product_group)
+
+You can attach properties like so:
+
+```
+customer: {
+  properties: {
+    type: 'Property::Email',
+    name: 'Accounting e-mail',
+    value: 'accounting@company.com'
+  }
+}
+```
 
 Property knows the following types:
 

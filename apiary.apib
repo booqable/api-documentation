@@ -365,6 +365,34 @@ The employee will receive an e-mail after creation with password setup instructi
 
 # Group Tax Regions
 
+# Group Tax Rates
+A TaxRate can be attached to:
+- a [Tax Region](#reference/tax_regions)
+- a [Tax Category](#reference/tax_categories)
+
+You can attach properties like so:
+
+```
+tax_category: {
+  tax_rates: [
+    {
+      name: 'GST 8%',
+      value: 'GST'
+    }
+  ]
+}
+```
+
+A tax rate has the following properties
+
+| Field               | Type     | Description                   |
+|---------------------|----------|-------------------------------|
+| `id`                | Integer  |`Readonly` The identifier of the property |
+| `name`*             | String   | The name of the tax rate, will be displayed on orders and documents |
+| `value`*            | Integer  | Percentage between 0..100 |
+
+\* required
+
 # Group Customers
 
 The Customer object holds all information about a customer. The customer resource has the following attributes:
@@ -383,6 +411,69 @@ The Customer object holds all information about a customer. The customer resourc
 | `archived`         | Boolean  | `Readonly` Whether the customer is archived |
 | `created_at`       | DateTime | `Readonly` When the company was created |
 | `updated_at`       | DateTime | `Readonly` When the company was last updated |
+
+\* required
+
+# Group Property
+A property can be attached to:
+- a [Customer](#reference/customer)
+- a [ProductGroup](#reference/product_group)
+
+You can attach properties like so:
+
+```
+customer: {
+  properties: [
+    {
+      type: 'Property::Email',
+      name: 'Accounting e-mail',
+      value: 'accounting@company.com'
+    }
+  ]
+}
+```
+
+Property knows the following types:
+
+## Address
+
+| Field               | Type     | Description                   |
+|---------------------|----------|-------------------------------|
+| `id`                | Integer  |`Readonly` The identifier of the property |
+| `type` *            | String   | The property type |
+| `name`*             | String   | The name of address |
+| `address1`          | String   | The first address line |
+| `address2`          | String   | The second address line |
+| `zipcode`           | String   | The zipcode |
+| `city`              | String   | The city |
+| `country`           | String   | The country |
+
+## Email
+
+| Field               | Type     | Description                   |
+|---------------------|----------|-------------------------------|
+| `id`                | Integer  |`Readonly` The identifier of the property |
+| `type` *            | String   | The property type |
+| `name`*             | String   | The name of the e-mail address |
+| `value`*            | String   | The e-mail address |
+
+## TextArea
+
+| Field               | Type     | Description                   |
+|---------------------|----------|-------------------------------|
+| `id`                | Integer  |`Readonly` The identifier of the property |
+| `type` *            | String   | The property type |
+| `name`*             | String   | The name of the textarea |
+| `value`*            | String   | The value of the textarea |
+
+## TextField
+
+| Field               | Type     | Description                   |
+|---------------------|----------|-------------------------------|
+| `id`                | Integer  |`Readonly` The identifier of the property |
+| `type` *            | String   | The property type |
+| `name`*             | String   | The name of the textfield |
+| `value`*            | String   | The value of the textfield |
 
 \* required
 
@@ -540,67 +631,6 @@ The Customer object holds all information about a customer. The customer resourc
 + Response 200
 
     [Customer][]
-
-# Group Property
-A property can be attached to:
-- a [Customer](#reference/customer)
-- a [ProductGroup](#reference/product_group)
-
-You can attach properties like so:
-
-```
-customer: {
-  properties: [
-    {
-      type: 'Property::Email',
-      name: 'Accounting e-mail',
-      value: 'accounting@company.com'
-    }
-  ]
-}
-```
-
-Property knows the following types:
-
-## Address
-
-| Field               | Type     | Description                   |
-|---------------------|----------|-------------------------------|
-| `id`                | Integer  |`Readonly` The identifier of the property |
-| `type` *            | String   | The property type |
-| `name`*             | String   | The name of address |
-| `address1`          | String   | The first address line |
-| `address2`          | String   | The second address line |
-| `zipcode`           | String   | The zipcode |
-| `city`              | String   | The city |
-| `country`           | String   | The country |
-
-## Email
-
-| Field               | Type     | Description                   |
-|---------------------|----------|-------------------------------|
-| `id`                | Integer  |`Readonly` The identifier of the property |
-| `type` *            | String   | The property type |
-| `name`*             | String   | The name of the e-mail address |
-| `value`*            | String   | The e-mail address |
-
-## TextArea
-
-| Field               | Type     | Description                   |
-|---------------------|----------|-------------------------------|
-| `id`                | Integer  |`Readonly` The identifier of the property |
-| `type` *            | String   | The property type |
-| `name`*             | String   | The name of the textarea |
-| `value`*            | String   | The value of the textarea |
-
-## TextField
-
-| Field               | Type     | Description                   |
-|---------------------|----------|-------------------------------|
-| `id`                | Integer  |`Readonly` The identifier of the property |
-| `type` *            | String   | The property type |
-| `name`*             | String   | The name of the textfield |
-| `value`*            | String   | The value of the textfield |
 
 # Group Product Groups
 

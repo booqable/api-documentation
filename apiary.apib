@@ -480,6 +480,17 @@ The Customer object holds all information about a customer. The customer resourc
                   email: john@doe.com,
                   phone: null,
                   tax_region_id: 2
+                  properties: [
+                    {
+                      type: "Property::Address"
+                      name: "Main"
+                      address1: "Pieter stuyvesantweg 153"
+                      address2: "Unit 504"
+                      zipcode: 8937AH
+                      city: "Leeuwarden"
+                      country: "Netherlands"
+                    }
+                  ]
                 }
             }
 
@@ -519,6 +530,53 @@ The Customer object holds all information about a customer. The customer resourc
 + Response 200
 
     [Customer][]
+
+# Group Property
+A property can be attached to:
+- [Customer](#reference/customer)
+- [ProductGroup](#reference/product_group)
+
+Property knows the following types:
+
+## Address
+
+| Field               | Type     | Description                   |
+|---------------------|----------|-------------------------------|
+| `id`                | Integer  |`Readonly` The identifier of the property |
+| `type` *            | String   | The property type |
+| `name`*             | String   | The name of address |
+| `address1`          | String   | The first address line |
+| `address2`          | String   | The second address line |
+| `zipcode`           | String   | The zipcode |
+| `city`              | String   | The city |
+| `country`           | String   | The country |
+
+## Email
+
+| Field               | Type     | Description                   |
+|---------------------|----------|-------------------------------|
+| `id`                | Integer  |`Readonly` The identifier of the property |
+| `type` *            | String   | The property type |
+| `name`*             | String   | The name of the e-mail address |
+| `value`*            | String   | The e-mail address |
+
+## TextArea
+
+| Field               | Type     | Description                   |
+|---------------------|----------|-------------------------------|
+| `id`                | Integer  |`Readonly` The identifier of the property |
+| `type` *            | String   | The property type |
+| `name`*             | String   | The name of the textarea |
+| `value`*            | String   | The value of the textarea |
+
+## TextField
+
+| Field               | Type     | Description                   |
+|---------------------|----------|-------------------------------|
+| `id`                | Integer  |`Readonly` The identifier of the property |
+| `type` *            | String   | The property type |
+| `name`*             | String   | The name of the textfield |
+| `value`*            | String   | The value of the textfield |
 
 # Group Documents
 

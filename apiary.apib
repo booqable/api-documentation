@@ -544,11 +544,13 @@ You can attach properties like so:
 
 ```
 customer: {
-  properties: {
-    type: 'Property::Email',
-    name: 'Accounting e-mail',
-    value: 'accounting@company.com'
-  }
+  properties: [
+    {
+      type: 'Property::Email',
+      name: 'Accounting e-mail',
+      value: 'accounting@company.com'
+    }
+  ]
 }
 ```
 

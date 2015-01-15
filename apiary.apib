@@ -39,6 +39,19 @@ Booqable uses conventional HTTP response codes to indicate success or failure of
 
 Our API bindings can raise exceptions for many reasons, such as invalid parameters, authentication errors, and network unavailability. We recommend always trying to gracefully handle exceptions from our API.
 
+## Description Of Usual Server Responses
+
+- 200 `OK` - the request was successful.
+- 201 `Created` - the request was successful and a resource was created.
+- 204 `No Content` - the request was successful but there is no representation to return (i.e. the response is empty).
+- 400 `Bad Request` - the request could not be understood or was missing required parameters.
+- 401 `Unauthorized` - authentication failed or user doesn't have permissions for requested operation.
+- 403 `Forbidden` - access denied, authentication will not help.
+- 404 `Not Found` - resource not found
+- 422 `Unprocessable Entity` - validation errors occured
+- 500 `Internal Server Error` - something went wrong during your request
+- 503 `Service Unavailable` - our service is unavailable
+
 # Group Session
 The Session object holds all information about the current session. A session object with all it's details.
 

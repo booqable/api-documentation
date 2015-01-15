@@ -373,6 +373,7 @@ The Customer object holds all information about a customer. The customer resourc
 | `avatar_url`       | String   | `Readonly` The avatar url |
 | `tax_region_id`    | Integer  | The associated tax region. See [TaxRegion](#reference/tax_region) |
 | `properties`       | Array    | See [Property](#reference/property) |
+| `notes`            | Array    | See [Notes](#reference/notes) |
 | `archived`         | Boolean  | `Readonly` Whether the customer is archived |
 | `created_at`       | DateTime | `Readonly` When the company was created |
 | `updated_at`       | DateTime | `Readonly` When the company was last updated |
@@ -490,6 +491,9 @@ The Customer object holds all information about a customer. The customer resourc
                       city: "Leeuwarden"
                       country: "Netherlands"
                     }
+                  ],
+                  notes: [
+
                   ]
                 }
             }
@@ -533,8 +537,8 @@ The Customer object holds all information about a customer. The customer resourc
 
 # Group Property
 A property can be attached to:
-- [Customer](#reference/customer)
-- [ProductGroup](#reference/product_group)
+- a [Customer](#reference/customer)
+- a [ProductGroup](#reference/product_group)
 
 Property knows the following types:
 

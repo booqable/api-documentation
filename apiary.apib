@@ -393,27 +393,6 @@ A tax rate has the following properties
 
 \* required
 
-# Group Customers
-
-The Customer object holds all information about a customer. The customer resource has the following attributes:
-
-| Field              | Type     | Description                   |
-|--------------------|----------|-------------------------------|
-| `id`               | Integer  |`Readonly` The identifier of the employee |
-| `number`           | Integer  | `Unique` The customer's number |
-| `name` *           | String   | The name of the employee       |
-| `email`            | String   | E-mail address of the employee |
-| `phone`            | String   | Employees phone number |
-| `avatar_url`       | String   | `Readonly` The avatar url |
-| `tax_region_id`    | Integer  | The associated tax region. See [TaxRegion](#reference/tax_region) |
-| `properties`       | Array    | The customer's custom properties. See [Property](#reference/property) |
-| `notes`            | Array    | The customer's notes. See [Notes](#reference/notes) |
-| `archived`         | Boolean  | `Readonly` Whether the customer is archived |
-| `created_at`       | DateTime | `Readonly` When the company was created |
-| `updated_at`       | DateTime | `Readonly` When the company was last updated |
-
-\* required
-
 # Group Property
 A property can be attached to:
 - a [Customer](#reference/customer)
@@ -474,6 +453,27 @@ Property knows the following types:
 | `type` *            | String   | The property type |
 | `name`*             | String   | The name of the textfield |
 | `value`*            | String   | The value of the textfield |
+
+\* required
+
+# Group Customers
+
+The Customer object holds all information about a customer. The customer resource has the following attributes:
+
+| Field              | Type     | Description                   |
+|--------------------|----------|-------------------------------|
+| `id`               | Integer  |`Readonly` The identifier of the employee |
+| `number`           | Integer  | `Unique` The customer's number |
+| `name` *           | String   | The name of the employee       |
+| `email`            | String   | E-mail address of the employee |
+| `phone`            | String   | Employees phone number |
+| `avatar_url`       | String   | `Readonly` The avatar url |
+| `tax_region_id`    | Integer  | The associated tax region. See [TaxRegion](#reference/tax_region) |
+| `properties`       | Array    | The customer's custom properties. See [Property](#reference/property) |
+| `notes`            | Array    | The customer's notes. See [Notes](#reference/notes) |
+| `archived`         | Boolean  | `Readonly` Whether the customer is archived |
+| `created_at`       | DateTime | `Readonly` When the company was created |
+| `updated_at`       | DateTime | `Readonly` When the company was last updated |
 
 \* required
 

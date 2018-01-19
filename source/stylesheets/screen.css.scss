@@ -58,7 +58,7 @@ html, body {
   left: 0;
   bottom: 0;
   width: $nav-width;
-  background-color: $nav-bg;
+  background: linear-gradient(-125deg, #8fcc40 0%, #40b0cc 97%);
   font-size: 13px;
   font-weight: bold;
 
@@ -84,7 +84,7 @@ html, body {
       background: $nav-bg;
       border-width: 0 0 1px 0;
       border-color: $search-box-border-color;
-      padding: 6px 0 6px 20px;
+      padding: 6px 0 6px 25px;
       box-sizing: border-box;
       margin: $nav-v-padding $nav-padding;
       width: $nav-width - 30;
@@ -96,14 +96,18 @@ html, body {
     &:before {
       position: absolute;
       top: 17px;
-      left: $nav-padding;
+      left: 22px;
       color: $nav-text;
       @extend %icon-search;
     }
+
   }
 
   .logo {
     margin-bottom: $logo-margin;
+    width: 85%;
+    padding: 5%;
+    margin-top: 15px;
   }
 
   .search-results {

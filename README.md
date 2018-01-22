@@ -15,10 +15,9 @@ You're going to need:
 * Bundler — If Ruby is already installed, but the bundle command doesn't work, just run gem install bundler in a terminal.
 
 ### Getting Set Up
-1. Fork this repository on GitHub.
-2. Clone your forked repository (not our original one) to your hard drive with git clone https://github.com/YOURUSERNAME/slate.git
-3. `cd api-documentation`
-4. Initialize and start Slate. You can either do this locally, or with Vagrant:
+1. Clone this repository
+2. `cd api-documentation`
+3. Initialize and start Slate. You can either do this locally, or with Vagrant:
 
 ```shell
 # either run this to run locally

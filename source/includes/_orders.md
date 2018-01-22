@@ -211,7 +211,7 @@ Creates a new order with the provided details
 `POST /orders`
 
 <aside class="notice">
-    Orders default to the status <code>new</code> and need to be changed to <code>concept</code> before they can be seen in the app
+    Orders default to the status <code>new</code> and need to be changed to <code>concept</code> before become available in the app
 </aside>
 
 
@@ -579,7 +579,7 @@ What status an order can be reverted to depends on it's current status:
 | ---------------|--------------------------- |
 | reserved       | concept                    |
 | started        | concept, reserved          |
-| stopped        | concept, reserved, stopped |
+| stopped        | concept, reserved, started |
 
 ### HTTP Request
 

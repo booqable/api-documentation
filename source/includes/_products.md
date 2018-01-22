@@ -358,6 +358,71 @@ curl --request POST \
 
 ## Check availability
 
+> Example request
+
+```shell
+curl --request GET \
+  --url 'https://company.booqable.dev/api/1/products/23b6445d-c846-404b-8628-acb9023d8e5c/availability?interval=month&till=01-02-2018&from=01-01-2018
+```
+
+> This request returns JSON structured like this
+
+```json
+{
+	"2017-12-01 00:00:00 +0100": {
+		"reserved": 0,
+		"concept": 0,
+		"date": "2017-12-01T00:00:00.000+01:00",
+		"available": 5,
+		"total": 5,
+		"interval": "month"
+	},
+	"2018-01-01 00:00:00 +0100": {
+		"reserved": 2,
+		"concept": 0,
+		"date": "2018-01-01T00:00:00.000+01:00",
+		"available": 3,
+		"total": 5,
+		"interval": "month"
+	},
+	"2018-02-01 00:00:00 +0100": {
+		"reserved": 0,
+		"concept": 2,
+		"date": "2018-02-01T00:00:00.000+01:00",
+		"available": 5,
+		"total": 5,
+		"interval": "month"
+	},
+	"2018-03-01 00:00:00 +0100": {
+		"reserved": 0,
+		"concept": 0,
+		"date": "2018-03-01T00:00:00.000+01:00",
+		"available": 5,
+		"total": 5,
+		"interval": "month"
+	}
+}
+```
+
+Provides an availability overview of the specified product in the provided timeframe
+
+### HTTP Request
+
+`GET /products/:product_id/availablility/?from=:from&till=:till` or  
+`GET /products/:product_id/availablility/?from=:from&till=:till&interval=:interval`
+
+### Query parameters
+
+| Parameter  | Description                                  | Available options                        |
+| ---------- | -------------------------------------------- | ---------------------------------------- |
+| **from**   | Start date                                   |                                          |
+| **till**   | End date                                     |                                          |
+| interval   | Specifies intervals to split up timeframe in | `minute`, `hour`, `day`, `week`, `month` |
+
+Required in **bold**
+
+<aside class="notice">An empty response will be sent if the request is not valid</aside>
+
 ## Show product pricing structures
 
 > Example request

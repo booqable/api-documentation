@@ -169,9 +169,14 @@ Updates the order of lines in an order.
 
 `POST /orders/:order_id/lines/update_positions?ids[]=:id1&ids[]=:id2...`
 
-<aside class="notice">
+### Query Parameters
 
-</aside>
+| Parameter | Description                                                                                  |
+| --------- | -------------------------------------------------------------------------------------------- |
+| **ids[]** | Line id, each line id needs it's own `ids[]` and their order determines the update positions |
+
+Required in **bold**
+
 
 ## Remove a line
 

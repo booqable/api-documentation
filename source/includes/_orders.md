@@ -301,7 +301,7 @@ curl --request PATCH \
 
 ```shell
 curl --request POST \
-  --url 'https://example.booqable.dev/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/concept'
+  --url 'https://example.booqable.dev/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/book'
 ```
 
 > This request returns JSON structured like this

@@ -1,0 +1,2396 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Booqable API</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+  </head>
+
+  <body class="index" data-languages="[]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo.svg" class="logo" alt="Logo" />
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#creating-an-api-key" class="toc-h2 toc-link" data-title="Creating an API key">Creating an API key</a>
+                  </li>
+                  <li>
+                    <a href="#contributing" class="toc-h2 toc-link" data-title="Contributing">Contributing</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#endpoint" class="toc-h1 toc-link" data-title="Endpoint">Endpoint</a>
+          </li>
+          <li>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+          </li>
+          <li>
+            <a href="#customers" class="toc-h1 toc-link" data-title="Customers">Customers</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#list-all-customers" class="toc-h2 toc-link" data-title="List all customers">List all customers</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-new-customer" class="toc-h2 toc-link" data-title="Create a new customer">Create a new customer</a>
+                  </li>
+                  <li>
+                    <a href="#get-a-single-customer" class="toc-h2 toc-link" data-title="Get a single customer">Get a single customer</a>
+                  </li>
+                  <li>
+                    <a href="#update-customer" class="toc-h2 toc-link" data-title="Update customer">Update customer</a>
+                  </li>
+                  <li>
+                    <a href="#archive-customer" class="toc-h2 toc-link" data-title="Archive customer">Archive customer</a>
+                  </li>
+                  <li>
+                    <a href="#restore-customer" class="toc-h2 toc-link" data-title="Restore customer">Restore customer</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#product-groups" class="toc-h1 toc-link" data-title="Product Groups">Product Groups</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#list-all-product-groups" class="toc-h2 toc-link" data-title="List all product groups">List all product groups</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-new-product-group" class="toc-h2 toc-link" data-title="Create a new product group">Create a new product group</a>
+                  </li>
+                  <li>
+                    <a href="#get-a-single-product-group" class="toc-h2 toc-link" data-title="Get a single product group">Get a single product group</a>
+                  </li>
+                  <li>
+                    <a href="#update-product-group" class="toc-h2 toc-link" data-title="Update product group">Update product group</a>
+                  </li>
+                  <li>
+                    <a href="#archive-product-group" class="toc-h2 toc-link" data-title="Archive product group">Archive product group</a>
+                  </li>
+                  <li>
+                    <a href="#restore-product-group" class="toc-h2 toc-link" data-title="Restore product group">Restore product group</a>
+                  </li>
+                  <li>
+                    <a href="#check-availability" class="toc-h2 toc-link" data-title="Check availability">Check availability</a>
+                  </li>
+                  <li>
+                    <a href="#show-product-pricing-structures" class="toc-h2 toc-link" data-title="Show product pricing structures">Show product pricing structures</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#orders" class="toc-h1 toc-link" data-title="Orders">Orders</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#list-all-orders" class="toc-h2 toc-link" data-title="List all orders">List all orders</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-new-order" class="toc-h2 toc-link" data-title="Create a new order">Create a new order</a>
+                  </li>
+                  <li>
+                    <a href="#get-a-single-order" class="toc-h2 toc-link" data-title="Get a single order">Get a single order</a>
+                  </li>
+                  <li>
+                    <a href="#update-order" class="toc-h2 toc-link" data-title="Update order">Update order</a>
+                  </li>
+                  <li>
+                    <a href="#book-order-39-s-items" class="toc-h2 toc-link" data-title="Book order's items">Book order's items</a>
+                  </li>
+                  <li>
+                    <a href="#save-an-order-as-a-concept" class="toc-h2 toc-link" data-title="Save an order as a concept">Save an order as a concept</a>
+                  </li>
+                  <li>
+                    <a href="#reserve-an-order" class="toc-h2 toc-link" data-title="Reserve an order">Reserve an order</a>
+                  </li>
+                  <li>
+                    <a href="#start-order" class="toc-h2 toc-link" data-title="Start order">Start order</a>
+                  </li>
+                  <li>
+                    <a href="#stop-order" class="toc-h2 toc-link" data-title="Stop order">Stop order</a>
+                  </li>
+                  <li>
+                    <a href="#cancel-order" class="toc-h2 toc-link" data-title="Cancel order">Cancel order</a>
+                  </li>
+                  <li>
+                    <a href="#revert-order-to-a-given-status" class="toc-h2 toc-link" data-title="Revert order to a given status">Revert order to a given status</a>
+                  </li>
+                  <li>
+                    <a href="#archive-an-order" class="toc-h2 toc-link" data-title="Archive an order">Archive an order</a>
+                  </li>
+                  <li>
+                    <a href="#duplicate-an-order" class="toc-h2 toc-link" data-title="Duplicate an order">Duplicate an order</a>
+                  </li>
+                  <li>
+                    <a href="#check-availability" class="toc-h2 toc-link" data-title="Check availability">Check availability</a>
+                  </li>
+                  <li>
+                    <a href="#recalculate-prices" class="toc-h2 toc-link" data-title="Recalculate prices">Recalculate prices</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#planning" class="toc-h1 toc-link" data-title="Planning">Planning</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#delete-a-planning" class="toc-h2 toc-link" data-title="Delete a planning">Delete a planning</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#order-lines" class="toc-h1 toc-link" data-title="Order Lines">Order Lines</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#create-a-new-line" class="toc-h2 toc-link" data-title="Create a new line">Create a new line</a>
+                  </li>
+                  <li>
+                    <a href="#update-a-line" class="toc-h2 toc-link" data-title="Update a line">Update a line</a>
+                  </li>
+                  <li>
+                    <a href="#update-line-positions" class="toc-h2 toc-link" data-title="Update line positions">Update line positions</a>
+                  </li>
+                  <li>
+                    <a href="#remove-a-line" class="toc-h2 toc-link" data-title="Remove a line">Remove a line</a>
+                  </li>
+              </ul>
+          </li>
+      </div>
+        <ul class="toc-footer">
+            <li><a href='https://github.com/booqable/api-documentation'>Documentation on GitHub</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='introduction'>Introduction</h1>
+<p>The Booqable API is a RESTful API and as such is designed to have predictable, resource-oriented URLs and to use HTTP response codes to indicate API errors. We use standard HTTP features, like HTTP authentication and HTTP verbs, which can be understood by off-the-shelf HTTP clients, and we support cross-origin resource sharing to allow you to interact securely with our API from a client-side web application.</p>
+
+<p>To make the Booqable API as explorable as possible, accounts have test-mode API keys as well as live-mode API keys. These keys can be active at the same time.</p>
+
+<aside class="warning">
+  <b>WARNING:</b> Booqable's API is still in Beta we might introduce non-backwards compatible changes in the future!
+</aside>
+<h2 id='creating-an-api-key'>Creating an API key</h2>
+<p>To interact with our API, first, you have to have a means of authentification, here&#39;s how to create a shiny new API key.</p>
+
+<ol>
+<li>Go to your account settings page<br>
+<code>{company-name-here}.booqable.com/account/edit</code></li>
+<li>Name your new key</li>
+<li>Click &quot;Create new key&quot;</li>
+</ol>
+
+<aside class="success">
+  You now have a <b>Booqable API key!</b>
+</aside>
+
+<p>You can manage your API keys from your account.<br>
+You can have multiple API keys active at one time. </p>
+
+<aside class="warning">
+  Your API keys carry many privileges, so be sure to keep them secret! <br>
+  <b>Don't expose your API key in any public websites client-side code.</b>
+</aside>
+<h2 id='contributing'>Contributing</h2>
+<p>The API is going to be a very important part of our eco system. We&#39;ve designed the docs in a way every developer is able to contribute to our API. If you find a bug or you have a great suggestion open an issue or pull request on Github. Check <a href="https://github.com/booqable/api-documentation">our github repository</a> for a readme on how to participate. We love to see your additions!</p>
+<h1 id='endpoint'>Endpoint</h1>
+<p>All API requests need to be directed to the correct company-specific endpoint.
+The format is as follows:</p>
+
+<p><code>https://{company_slug}.booqable.com/api/1/</code></p>
+
+<aside class="notice">
+  You must replace <code>{company_slug}</code> with the name of your company.
+</aside>
+<h1 id='authentication'>Authentication</h1>
+<blockquote>
+<p>Example of an authorized request  </p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request GET <span class="se">\</span>
+  --url <span class="s1">'https://company.booqable.dev/api/1/customers?api_key=API_KEY_HERE'</span>
+</code></pre>
+<p>You authenticate to the Booqable API by providing on of your API keys in the request.<br>
+This can be done by appending <code>?api_key=API_KEY_HERE</code> to the end of your request URL.  </p>
+
+<aside class="notice">
+  A request sent with a correct API key will recieve a session cookie in the response. You can use this cookie for further requests.
+</aside>
+
+<aside class="notice">
+  Unless otherwise specified all further examples will omit authentication for the sake of brevity
+</aside>
+<h1 id='customers'>Customers</h1>
+<blockquote>
+<p>Example of a customer </p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"297f2584-5f6c-475d-919f-f8791aa6a06a"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-15T15:27:52.172Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-15T15:22:27.479Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"legacy_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://gravatar.com/avatar/35f5782642e9fa0f6cfff5a552e2ae97.png?d=blank"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane Doe"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jane@doe.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string?"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tax_region_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"discount_percentage"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"deposit_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"deposit_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"buisness"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"address1"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address2"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"region"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"zipcode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"order_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"turnover"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"main_address"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4adcf3c-d9af-496a-a4b6-d39544ae91b3"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Some note"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"notable_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Customer"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"notable_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"297f2584-5f6c-475d-919f-f8791aa6a06a"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"044b6b43-66f8-4fd2-acf2-0250205b2248"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"employee"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"044b6b43-66f8-4fd2-acf2-0250205b2248"</span><span class="p">,</span><span class="w">
+                    </span><span class="err">...</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"orders"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a974fe33-a267-4334-9f2b-21b2e4fed852"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"concept"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"297f2584-5f6c-475d-919f-f8791aa6a06a"</span><span class="p">,</span><span class="w">
+                </span><span class="err">...</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>The Customer object holds all information about a customer. The customer resource has the following attributes:</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Integer</td>
+<td><code>Readonly</code> The identifier of the customer</td>
+</tr>
+<tr>
+<td>number</td>
+<td>Integer</td>
+<td><code>Unique</code> The customer&#39;s number</td>
+</tr>
+<tr>
+<td><strong>name</strong></td>
+<td>String</td>
+<td>The name of the customer</td>
+</tr>
+<tr>
+<td>email</td>
+<td>String</td>
+<td>E-mail address of the customer</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>String</td>
+<td>Customers phone number</td>
+</tr>
+<tr>
+<td>avatar_url</td>
+<td>String</td>
+<td><code>Readonly</code> The avatar url</td>
+</tr>
+<tr>
+<td>tax_region_id</td>
+<td>Integer</td>
+<td>The associated tax region.</td>
+</tr>
+<tr>
+<td>orders</td>
+<td>Array</td>
+<td>The customer&#39;s orders (?)</td>
+</tr>
+<tr>
+<td>properties</td>
+<td>Array</td>
+<td>The customer&#39;s custom properties.</td>
+</tr>
+<tr>
+<td>notes</td>
+<td>Array</td>
+<td>The customer&#39;s notes.</td>
+</tr>
+<tr>
+<td>archived</td>
+<td>Boolean</td>
+<td><code>Readonly</code> Whether the customer is archived</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>DateTime</td>
+<td><code>Readonly</code> When the customer was created</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>DateTime</td>
+<td><code>Readonly</code> When the customer was last updated</td>
+</tr>
+</tbody></table>
+
+<p>Required in <strong>bold</strong></p>
+<h2 id='list-all-customers'>List all customers</h2><pre class="highlight shell tab-shell"><code>curl --request GET <span class="se">\</span>
+  --url <span class="s1">'https://example.booqable.com/api/1/customers?page=1&amp;per=2&amp;api_key=example_key'</span>
+</code></pre>
+<blockquote>
+<p>This request returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"customers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b496c71d-2211-4e27-bf80-3058e5294358"</span><span class="p">,</span><span class="w">
+            </span><span class="err">...</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"49785b51-ca29-4fe8-8218-dacbf1d099ff"</span><span class="p">,</span><span class="w">
+            </span><span class="err">...</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"total_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"facets"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"tag_list"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"terms"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"missing"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"other"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"terms"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all customers and can paginated</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET /customers</code> or<br>
+<code>GET /customers?page=:page&amp;per=:per</code></p>
+<h3 id='query-parameters'>Query parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>page</td>
+<td>1</td>
+<td>Which page to display</td>
+</tr>
+<tr>
+<td>per</td>
+<td>nil</td>
+<td>If set it limits the number of customers per page</td>
+</tr>
+</tbody></table>
+<h3 id='meta'>Meta</h3>
+<p>The <code>meta</code> object contains metadata about the complete collection (not affected by pagination)</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>total_count</td>
+<td>Total amount of customers</td>
+</tr>
+<tr>
+<td>tag_list</td>
+<td>List of tags related to customers</td>
+</tr>
+</tbody></table>
+<h2 id='create-a-new-customer'>Create a new customer</h2>
+<blockquote>
+<p>Format of request body</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jack Doe"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jack@doe.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1598580108"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Property::Address"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Main"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pieter stuyvesantweg 153"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unit 504"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"zipcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8937AH"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Leeuwarden"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Netherlands"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request POST <span class="se">\</span>
+  --url <span class="s1">'https://example.booqable.dev/api/1/customers'</span> <span class="se">\</span>
+  --header <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  --data <span class="s1">'{
+    "customer": {
+        "name": "Jane Doe",
+        "email": "jane@doe.com",
+        "tax_region_id": 1,
+        "properties": [
+            {
+                "type": "Property::Address",
+        "name": "Main",
+        "address1": "Pieter stuyvesantweg 153",
+        "address2": "Unit 504",
+        "zipcode": "8937AH",
+        "city": "Leeuwarden",
+        "country": "Netherlands"
+            }
+        ]
+    }
+}'</span>
+</code></pre>
+<blockquote>
+<p>This request returns JSON structured like this</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"297f2584-5f6c-475d-919f-f8791aa6a06a"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane Doe"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jane@doe.com"</span><span class="p">,</span><span class="w">
+        </span><span class="err">...</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Creates a new customer with the provided properties</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST /customers</code></p>
+<h3 id='required-parameters'>Required parameters</h3>
+<p><strong><code>name</code></strong></p>
+<h2 id='get-a-single-customer'>Get a single customer</h2>
+<blockquote>
+<p>Get a customer using their id</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request GET <span class="se">\</span>
+  --url <span class="s1">'https://example.booqable.dev/api/1/customers/b496c71d-2211-4e27-bf80-3058e5294358'</span>
+</code></pre>
+<blockquote>
+<p>Get a customer using their number</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request GET <span class="se">\</span>
+  --url <span class="s1">'https://example.booqable.dev/api/1/customers/1'</span>
+</code></pre>
+<blockquote>
+<p>This request returns JSON structured like this</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b496c71d-2211-4e27-bf80-3058e5294358"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane Doe"</span><span class="p">,</span><span class="w">
+        </span><span class="err">...</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint will retrieve a single customer by id or number</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET /customers/:id</code> or<br>
+<code>GET /customers/:number</code></p>
+<h2 id='update-customer'>Update customer</h2>
+<blockquote>
+<p>Format of request body</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06 11223344"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request PATCH <span class="se">\</span>
+  --url https://example.booqable.com/api/1/customers/297f2584-5f6c-475d-919f-f8791aa6a06a <span class="se">\</span>
+  --header <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  --data <span class="s1">'{
+    "customer": {
+        "phone": "06 11223344"
+    }
+}'</span>
+</code></pre>
+<blockquote>
+<p>This request returns JSON structured like this</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"297f2584-5f6c-475d-919f-f8791aa6a06a"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane Doe"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06 11223344"</span><span class="p">,</span><span class="w">
+        </span><span class="err">...</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Update the details of a customer</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>PUT /customers/:id/update</code> or<br>
+<code>PATCH /customer/:id/update</code></p>
+
+<aside class="notice">
+    Sending a <code>PUT</code> request will return the resource with any changes that were made, but sending a <code>PATCH</code> request will always return a <code>204 NO CONTENT</code>
+</aside>
+<h2 id='archive-customer'>Archive customer</h2>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request DELETE <span class="se">\</span>
+  --url <span class="s1">'https://example.booqable.dev/api/1/customers/b496c71d-2211-4e27-bf80-3058e5294358/archive'</span>
+</code></pre>
+<blockquote>
+<p>This request returns JSON structured like this</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b496c71d-2211-4e27-bf80-3058e5294358"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Doe"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Archives a customer hiding it from searches, getting this customer by id will still find it, and it can still be updated</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>DELETE /customers/:id/archive</code></p>
+<h2 id='restore-customer'>Restore customer</h2>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request POST <span class="se">\</span>
+  --url <span class="s1">'https://example.booqable.dev/api/1/customers/b496c71d-2211-4e27-bf80-3058e5294358/restore'</span>
+</code></pre>
+<blockquote>
+<p>This request returns JSON structured like this</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b496c71d-2211-4e27-bf80-3058e5294358"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Doe"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Restores an archived customer</p>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>POST /customers/:id/restore</code></p>
+<h1 id='product-groups'>Product Groups</h1>
+<blockquote>
+<p>Here&#39;s an example product group</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"product_group"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6107b3cc-03a8-4935-906c-20e2c33db7e0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-16T14:51:23.917Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-12T15:58:01.753Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"legacy_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blackmagic Pocket Cinema Camera"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"blackmagic-pocket-cinema-camera-fda66bb8-d3c3-48e8-998a-2ab6b9106713"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BLACKMAGIC_POCKET_CINEMA_CAMERA"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lag_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1800</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lead_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">360</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"always_available"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"trackable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"archived_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"extra_information"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"search_highlight"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"photo_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"show_in_store"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"base_price_in_cents"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price_wrapper_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"simple"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price_period"</span><span class="p">:</span><span class="w"> </span><span class="s2">"day"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tax_category_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"flat_fee_price_in_cents"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"structure_price_in_cents"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"deposit_in_cents"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"products_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"stock_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"has_variations"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"variation_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"stock_item_properties"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"base_price_as_decimal"</span><span class="p">:</span><span class="w"> </span><span class="mf">50.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"flat_fee_price_as_decimal"</span><span class="p">:</span><span class="w"> </span><span class="mf">50.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"structure_price_as_decimal"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"deposit_as_decimal"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Product groups define the kind of products that are available but not individual stock items.<br>
+A product will always belong to a product group.</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Integer</td>
+<td><code>Readonly</code> The identifier of the product group</td>
+</tr>
+<tr>
+<td><strong>name</strong></td>
+<td>String</td>
+<td>Name of the product group</td>
+</tr>
+<tr>
+<td>sku</td>
+<td>String</td>
+<td>SKU of the product group. Only applies when the product group has no variations</td>
+</tr>
+<tr>
+<td>lag_time</td>
+<td>Integer</td>
+<td>Lag time in seconds</td>
+</tr>
+<tr>
+<td>lead_time</td>
+<td>Integer</td>
+<td>Lead time in seconds</td>
+</tr>
+<tr>
+<td>trackable</td>
+<td>Boolean</td>
+<td>Whether the product group has trackable (unique) stock</td>
+</tr>
+<tr>
+<td>base_price_in_cents</td>
+<td>Integer</td>
+<td>Base price in cents. This is used for price calculation</td>
+</tr>
+<tr>
+<td>price_id</td>
+<td>Integer</td>
+<td>ID of the associated price structure</td>
+</tr>
+<tr>
+<td>price_type</td>
+<td>String</td>
+<td>Price setting. Options are: blank, &#39;simple&#39; or &#39;structure&#39;</td>
+</tr>
+<tr>
+<td>price_period</td>
+<td>String</td>
+<td>Only applies when <code>price_type</code> is set to simple. Options are: &#39;hour&#39;, &#39;day&#39;, &#39;week&#39;, &#39;month&#39; or &#39;year&#39;</td>
+</tr>
+<tr>
+<td>archived</td>
+<td>Boolean</td>
+<td>Whether the product group is archived</td>
+</tr>
+<tr>
+<td>archived_at</td>
+<td>DateTime</td>
+<td>When the product group was archived</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>Integer</td>
+<td>Amount of stock</td>
+</tr>
+<tr>
+<td>variation_values</td>
+<td>Array</td>
+<td>Only applies when the product is a variation. Example: <code>[&#39;128GB&#39;, &#39;Spacegray&#39;]</code></td>
+</tr>
+<tr>
+<td>tax_category_id</td>
+<td>Integer</td>
+<td>ID of the associated tax category</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>DateTime</td>
+<td><code>Readonly</code> When the product group was created</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>DateTime</td>
+<td><code>Readonly</code> When the product group was last updated</td>
+</tr>
+</tbody></table>
+
+<p>Required in <strong>bold</strong></p>
+<h2 id='list-all-product-groups'>List all product groups</h2>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request GET <span class="se">\</span>
+  --url <span class="s1">'https://example.booqable.dev/api/1/product_groups'</span>
+</code></pre>
+<blockquote>
+<p>This request returns JSON structured like this</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"product_groups"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9c27c177-c6b5-4925-b67b-e69053c88399"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Arriflex 16SR3"</span><span class="p">,</span><span class="w">
+      </span><span class="err">...</span><span class="w">
+
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6107b3cc-03a8-4935-906c-20e2c33db7e0"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blackmagic Pocket Cinema Camera"</span><span class="p">,</span><span class="w">
+      </span><span class="err">...</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"total_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"facets"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"tag_list"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"terms"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"missing"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"other"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"terms"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"terms"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"missing"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"other"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"terms"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"term"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"term"</span><span class="p">:</span><span class="w"> </span><span class="s2">"with_stock"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"term"</span><span class="p">:</span><span class="w"> </span><span class="s2">"trackable"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"term"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bulk"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all product groups and can paginated</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET /product_groups</code> or<br>
+<code>GET /product_groups?per=:per&amp;page=:page</code></p>
+<h3 id='query-parameters'>Query parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>page</td>
+<td>1</td>
+<td>Which page to display</td>
+</tr>
+<tr>
+<td>per</td>
+<td>nil</td>
+<td>If set it limits the number of product groups per page</td>
+</tr>
+</tbody></table>
+<h3 id='meta'>Meta</h3>
+<p>The meta object contains metadata about the complete collection (not affected by pagination)</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>total_count</td>
+<td>Total amount of product groups</td>
+</tr>
+<tr>
+<td>tag_list</td>
+<td>List of tags and ammount of products tagged</td>
+</tr>
+<tr>
+<td>status</td>
+<td>Info about what kind of tracking mechanism product groups are using and how many are available</td>
+</tr>
+</tbody></table>
+<h2 id='create-a-new-product-group'>Create a new product group</h2>
+<blockquote>
+<p>Request body structure</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"product_group"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Arriflex 16SR3"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ARRIFLEX_16_SR3"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"base_price_in_cents"</span><span class="p">:</span><span class="w"> </span><span class="s2">"130000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"simple"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price_period"</span><span class="p">:</span><span class="w"> </span><span class="s2">"day"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request POST <span class="se">\</span>
+  --url <span class="s1">'https://example.booqable.dev/api/1/product_groups'</span> <span class="se">\</span>
+  --header <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  --data <span class="s1">'{
+    "product_group": {
+        "name": "Arriflex 16SR3",
+        "sku": "ARRIFLEX_16_SR3",
+        "base_price_in_cents": "130000",
+        "price_type": "simple",
+        "price_period": "day"
+    }
+}'</span>
+</code></pre>
+<blockquote>
+<p>This request returns JSON structured like this</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"product_group"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aff93024-a928-4da7-917a-799ea5d189ae"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Arriflex 16SR3"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ARRIFLEX_16_SR3"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"trackable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"base_price_in_cents"</span><span class="p">:</span><span class="w"> </span><span class="mi">130000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"simple"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price_period"</span><span class="p">:</span><span class="w"> </span><span class="s2">"day"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"base_price_as_decimal"</span><span class="p">:</span><span class="w"> </span><span class="mf">1300.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"products_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+    </span><span class="s2">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9bd04569-8c85-4b01-b0c5-f7070c319bcc"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Arriflex 16SR3"</span><span class="p">,</span><span class="w">
+        </span><span class="err">...</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Creates a new product group with the provided properties</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST /product_groups</code></p>
+
+<aside class="notice">
+  It's important to note that the <code>trackable</code> property, while not required, will default to <code>false</code> and can't be changed later
+</aside>
+<h2 id='get-a-single-product-group'>Get a single product group</h2>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request GET <span class="se">\</span>
+  --url <span class="s1">'https://example.booqable.dev/api/1/product_groups/6107b3cc-03a8-4935-906c-20e2c33db7e0'</span>
+</code></pre>
+<blockquote>
+<p>This request returns JSON structured like this</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"product_group"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6107b3cc-03a8-4935-906c-20e2c33db7e0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blackmagic Pocket Cinema Camera"</span><span class="p">,</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+    </span><span class="s2">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c560ea83-5231-4052-831e-c26db0121c1b"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blackmagic Pocket Cinema Camera"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"product_group_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6107b3cc-03a8-4935-906c-20e2c33db7e0"</span><span class="p">,</span><span class="w">
+        </span><span class="err">...</span><span class="w">
+        </span><span class="s2">"stock_items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"38b8a49f-9e39-4bf3-8336-2df392b1bee8"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c560ea83-5231-4052-831e-c26db0121c1b"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"available"</span><span class="p">,</span><span class="w">
+            </span><span class="err">...</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2bfbbf9f-4736-45eb-bf57-22b5355c41c8"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c560ea83-5231-4052-831e-c26db0121c1b"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"available"</span><span class="p">,</span><span class="w">
+            </span><span class="err">...</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="err">...</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint will retrieve a single product group by id</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET /product_groups/:id</code></p>
+<h2 id='update-product-group'>Update product group</h2>
+<blockquote>
+<p>Request body structure</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"product_group"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BM_POCKET_CINEMA_CAMERA"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request PATCH <span class="se">\</span>
+  --url <span class="s1">'https://example.booqable.dev/api/1/product_groups/6107b3cc-03a8-4935-906c-20e2c33db7e0'</span> <span class="se">\</span>
+  --header <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  --cookie <span class="s1">'request_method=GET; _rental_api_session=NFBoY2IxclJiQTBjdzZ4aWkxUmFUNzNZYjlXckJPbU9sUUh2OTVlS2c4NElRMW4wRGFMYlE5Mnozam9JMm9GSUhlVU9HYjNudFJJS3NhSzNGUDdaYVQzZk5tWjVwUmdQRXlvaGZXVDRXb2hmYWVIZ0t1eVYyaU54b0w3bXJ5Tm9mK0lseWhSOTZ0L28yU1pkOUYrbVdWUW5nbDNHQlU3K0d1RHdPdVJqbGdRZERwWVhsTGYyNlpsSHlxclBVck5zeVp1NXJ0N0g5eHNtaFljeDh1ekp4MWxYd3QxZTlKM2xXMFUxRkx5N1NRTkVVQjB0RnduaGFzOTNlSmJQYkYzcVdxMmRWWFVpbCsrSldxcEY4ZWJPaWM0VjRpQnZVMisyQTlEWVhjc3kxQ0Q5N1R5SFF6eSs1R2lDdjBzVDduNVJ4ejJ1eWJ5STFFdzVNWTBrQTJvSW02c3ZralRockQ0bWRUZ3RQdXBHMVdJPS0tNVhVTXY1RGthZEYxSXBBOEtmN0tiZz09--620dd5ead23e2e80caa59daed438a2e1f502797c'</span> <span class="se">\</span>
+  --data <span class="s1">'{
+    "product_group": {
+        "sku": "BM_POCKET_CINEMA_CAMERA"
+    }
+}'</span>
+</code></pre>
+<p>Update the properties of a product group</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>PUT /product_groups/:id</code> or<br>
+<code>PATH /product_groups/:id</code></p>
+
+<aside class="notice">
+    Sending a <code>PUT</code> request will return the resource with any changes that were made, but sending a <code>PATCH</code> request will always return a <code>204 NO CONTENT</code>
+</aside>
+<h2 id='archive-product-group'>Archive product group</h2>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request DELETE <span class="se">\</span>
+  --url <span class="s1">'https://example.booqable.dev/api/1/product_groups/6107b3cc-03a8-4935-906c-20e2c33db7e0/archive'</span>
+</code></pre>
+<p>Archives a product group</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>DELETE /product_groups/:id/archive</code></p>
+<h2 id='restore-product-group'>Restore product group</h2>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request POST <span class="se">\</span>
+  --url <span class="s1">'https://company.booqable.dev/api/1/product_groups/6107b3cc-03a8-4935-906c-20e2c33db7e0/restore'</span>
+</code></pre><h3 id='http-request-6'>HTTP Request</h3>
+<p><code>POST /product_groups/:id/restore</code></p>
+<h2 id='check-availability'>Check availability</h2>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request GET <span class="se">\</span>
+  --url <span class="s1">'https://company.booqable.dev/api/1/products/23b6445d-c846-404b-8628-acb9023d8e5c/availability?interval=month&amp;till=01-02-2018&amp;from=01-01-2018
+</span></code></pre>
+<blockquote>
+<p>This request returns JSON structured like this</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"2017-12-01 00:00:00 +0100"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"reserved"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"concept"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-01T00:00:00.000+01:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"available"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"interval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"month"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"2018-01-01 00:00:00 +0100"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"reserved"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"concept"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-01T00:00:00.000+01:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"available"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"interval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"month"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"2018-02-01 00:00:00 +0100"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"reserved"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"concept"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-01T00:00:00.000+01:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"available"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"interval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"month"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"2018-03-01 00:00:00 +0100"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"reserved"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"concept"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-01T00:00:00.000+01:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"available"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"interval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"month"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Provides an availability overview of the specified product in the provided timeframe</p>
+<h3 id='http-request-7'>HTTP Request</h3>
+<p><code>GET /products/:product_id/availablility/?from=:from&amp;till=:till</code> or<br>
+<code>GET /products/:product_id/availablility/?from=:from&amp;till=:till&amp;interval=:interval</code></p>
+<h3 id='query-parameters-2'>Query parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Available options</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>from</strong></td>
+<td>Start date</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>till</strong></td>
+<td>End date</td>
+<td></td>
+</tr>
+<tr>
+<td>interval</td>
+<td>Specifies intervals to split up timeframe in</td>
+<td><code>minute</code>, <code>hour</code>, <code>day</code>, <code>week</code>, <code>month</code></td>
+</tr>
+</tbody></table>
+
+<p>Required in <strong>bold</strong></p>
+
+<aside class="notice">An empty response will be sent if the request is not valid</aside>
+<h2 id='show-product-pricing-structures'>Show product pricing structures</h2>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request GET <span class="se">\</span>
+  --url <span class="s1">'https://example.booqable.dev/api/1/products/c560ea83-5231-4052-831e-c26db0121c1b/prices'</span>
+</code></pre>
+<blockquote>
+<p>This request returns JSON structured like this</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"price_structures"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"legacy_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"tiles"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"length"</span><span class="p">:</span><span class="w"> </span><span class="mi">86400</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"multiplier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"period"</span><span class="p">:</span><span class="w"> </span><span class="s2">"day"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"price_in_cents"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"price_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"length"</span><span class="p">:</span><span class="w"> </span><span class="mi">172800</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"multiplier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"period"</span><span class="p">:</span><span class="w"> </span><span class="s2">"day"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"price_in_cents"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"price_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="err">...</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Allows you to get the pricing structure of the product</p>
+<h3 id='http-request-8'>HTTP Request</h3>
+<p><code>GET /products/:product_id/prices</code></p>
+
+<aside class="notice">
+  The <code>product_id</code> is not the same as <code>product_group_id</code>
+</aside>
+<h1 id='orders'>Orders</h1>
+<blockquote>
+<p>Here&#39;s an example order</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"order"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"364a726b-419f-4156-ac29-71e2f1c6aefa"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-12T13:04:40.540Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-12T13:04:38.517Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"legacy_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"concept"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"starts_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"stops_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price_with_tax"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"grand_total"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"grand_total_with_tax"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price_in_cents"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price_with_tax_in_cents"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"grand_total_in_cents"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"grand_total_with_tax_in_cents"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"paid_in_cents"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"deposit_paid_in_cents"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"discount_percentage"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"discount_in_cents"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"discount_with_tax_in_cents"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"deposit_in_cents"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"deposit_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"none"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"deposit_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="s2">"tax_region_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"item_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"entirely_started"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"entirely_stopped"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"item_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="s2">"stock_item_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="s2">"invoice_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price_as_decimal"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price_with_tax_as_decimal"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"grand_total_as_decimal"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"grand_total_with_tax_as_decimal"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"paid_as_decimal"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"deposit_paid_as_decimal"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"discount_as_decimal"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"discount_with_tax_as_decimal"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"deposit_as_decimal"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"plannings"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="s2">"tax_values"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="s2">"lines"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This resource contains all the information about an order, such as the period, customer and products booked on it.<br>
+It has the following attributes:</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>id</code></td>
+<td>Integer</td>
+<td><code>Readonly</code> Unique primary id</td>
+</tr>
+<tr>
+<td><code>number</code></td>
+<td>Integer</td>
+<td><code>Unique</code> Order number</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>String</td>
+<td><code>Readonly</code> Status of the order</td>
+</tr>
+<tr>
+<td><code>customer</code></td>
+<td>Customer</td>
+<td>Associated customer. See <a href="#customers">Customer</a></td>
+</tr>
+<tr>
+<td><code>customer_id</code></td>
+<td>Integer</td>
+<td><code>Optional</code> ID of the associated customer</td>
+</tr>
+<tr>
+<td><code>starts_at</code></td>
+<td>DateTime</td>
+<td>Start date and time of the order</td>
+</tr>
+<tr>
+<td><code>stops_at</code></td>
+<td>DateTime</td>
+<td>Stop date and time of the order</td>
+</tr>
+<tr>
+<td><code>price_in_cents</code></td>
+<td>Integer</td>
+<td><code>Readonly</code> Price in cents without tax</td>
+</tr>
+<tr>
+<td><code>price_with_tax_in_cents</code></td>
+<td>Integer</td>
+<td><code>Readonly</code> Price in cents with tax</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td>DateTime</td>
+<td><code>Readonly</code> When the order was created</td>
+</tr>
+<tr>
+<td><code>updated_at</code></td>
+<td>DateTime</td>
+<td><code>Readonly</code> When the order was last updated</td>
+</tr>
+</tbody></table>
+
+<p>When retrieving an order it will include more attributes:</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>plannings</code></td>
+<td>Array</td>
+<td>Associated planning. See <a href="#planning">Planning</a></td>
+</tr>
+<tr>
+<td><code>lines</code></td>
+<td>Array</td>
+<td>Associated order lines. See <a href="#orderline">OrderLine</a></td>
+</tr>
+<tr>
+<td><code>tax_values</code></td>
+<td>Array</td>
+<td>Associated tax values. See <a href="#taxvalues">TaxValue</a></td>
+</tr>
+<tr>
+<td><code>notes</code></td>
+<td>Array</td>
+<td>Associated notes. See <a href="#notes">Note</a></td>
+</tr>
+</tbody></table>
+<h2 id='list-all-orders'>List all orders</h2>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request GET <span class="se">\</span>
+  --url <span class="s1">'https://example.booqable.dev/api/1/orders'</span>
+</code></pre>
+<blockquote>
+<p>This request returns JSON structured like this</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"orders"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"364a726b-419f-4156-ac29-71e2f1c6aefa"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"concept"</span><span class="p">,</span><span class="w">
+            </span><span class="err">...</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ea024c26-c322-485b-85ad-f67b890e5346"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"started"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"starts_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-26T13:45:00.000Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"stops_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-30T13:45:00.000Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"63a28c67-259c-4a27-a482-2aac3c5d705d"</span><span class="p">,</span><span class="w">
+            </span><span class="err">...</span><span class="w">
+            </span><span class="s2">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"63a28c67-259c-4a27-a482-2aac3c5d705d"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Customer Deee"</span><span class="p">,</span><span class="w">
+                </span><span class="err">...</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"total_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"total_item_count"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"facets"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"tag_list"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="err">...</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"terms"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"missing"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"other"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"terms"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="s2">"term"</span><span class="p">:</span><span class="w"> </span><span class="s2">"started"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="s2">"term"</span><span class="p">:</span><span class="w"> </span><span class="s2">"concept"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all orders and can paginated</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET /orders</code> or<br>
+<code>GET /orders?per=:per&amp;page=:page</code> or<br>
+<code>GET /orders?q=:query</code></p>
+<h3 id='query-parameters'>Query parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>page</td>
+<td>1</td>
+<td>Which page to display</td>
+</tr>
+<tr>
+<td>per</td>
+<td>nil</td>
+<td>If set it limits the number of orders per page</td>
+</tr>
+<tr>
+<td>q</td>
+<td>nil</td>
+<td>Allows to search orders for a term, for example <code>q=John</code> would return all orders where the term <code>John</code> shows up</td>
+</tr>
+</tbody></table>
+<h3 id='meta'>Meta</h3>
+<p>The meta object contains metadata about the complete collection (not affected by pagination)</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>total_count</td>
+<td>Total amount of orders</td>
+</tr>
+<tr>
+<td>tag_list</td>
+<td>List of tags and ammount of orders tagged</td>
+</tr>
+<tr>
+<td>status</td>
+<td>Shows the ammount of orders with the corresponding statuses</td>
+</tr>
+</tbody></table>
+<h2 id='create-a-new-order'>Create a new order</h2>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request POST <span class="se">\</span>
+--url <span class="s1">'https://example.booqable.dev/api/1/orders'</span> <span class="se">\</span>
+--header <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+--data <span class="s1">'
+    {
+        "order": {
+            "customer_id": 1,
+            "starts_at": "01-01-2018 9:00",
+            "stops_at": "01-02-2018 9:00"
+        }
+    }'</span>
+</code></pre>
+<blockquote>
+<p>This request returns JSON structured like this</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"order"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b1bf94ea-8595-4e17-acb3-b9ab425ed0bf"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"new"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"starts_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-01T08:00:00.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"stops_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-01T08:00:00.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="err">...</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Creates a new order with the provided details</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST /orders</code></p>
+
+<aside class="notice">
+    Orders default to the status <code>new</code> and need to be changed to <code>concept</code> before become available in the app
+</aside>
+<h2 id='get-a-single-order'>Get a single order</h2>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request GET <span class="se">\</span>
+  --url <span class="s1">'https://example.booqable.dev/api/1/orders/364a726b-419f-4156-ac29-71e2f1c6aefa'</span>
+</code></pre>
+<blockquote>
+<p>This request returns JSON structured like this</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"order"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"364a726b-419f-4156-ac29-71e2f1c6aefa"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"concept"</span><span class="p">,</span><span class="w">
+        </span><span class="err">...</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint will retrieve a single order by id or number</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET /orders/:id</code> or<br>
+<code>GET /orders/:number</code></p>
+<h2 id='update-order'>Update order</h2>
+<blockquote>
+<p>Request body example</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"order"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"stops_at"</span><span class="p">:</span><span class="s2">"2018-01-18T10:15:00.000Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example request </p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request PATCH <span class="se">\</span>
+--url <span class="s1">'https://example.booqable.dev/api/1/orders/364a726b-419f-4156-ac29-71e2f1c6aefa'</span> <span class="se">\</span>
+--header <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+--data <span class="s1">'{
+    "order": {
+        "stops_at":"2018-01-18T10:27:18.238Z"
+    }
+}'</span>
+</code></pre><h3 id='http-request-4'>HTTP Request</h3>
+<p><code>PUT /orders/:id</code> or<br>
+<code>PATCH /orders/:id</code></p>
+
+<aside class="notice">
+    Sending a <code>PUT</code> request will return the resource with any changes that were made, but sending a <code>PATCH</code> request will always return a <code>204 NO CONTENT</code>
+</aside>
+<h2 id='book-order-39-s-items'>Book order&#39;s items</h2>
+<blockquote>
+<p>Request body example</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"ids"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="err">Book</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">bulk</span><span class="w"> </span><span class="err">product</span><span class="w"> </span><span class="err">by</span><span class="w"> </span><span class="err">providing</span><span class="w"> </span><span class="err">an</span><span class="w"> </span><span class="err">Item</span><span class="w"> </span><span class="err">Group</span><span class="w"> </span><span class="err">ID</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">quantity</span><span class="w">
+        </span><span class="s2">"23b6445d-c846-404b-8628-acb9023d8e5cc"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="err">Book</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">trackable</span><span class="w"> </span><span class="err">product</span><span class="w"> </span><span class="err">by</span><span class="w"> </span><span class="err">providing</span><span class="w"> </span><span class="err">an</span><span class="w"> </span><span class="err">Item</span><span class="w"> </span><span class="err">Group</span><span class="w"> </span><span class="err">ID</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">quantity</span><span class="w">
+        </span><span class="s2">"cdda5942-19d1-4bc8-ac1b-0324a14ba6d5"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="err">Book</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">trackable</span><span class="w"> </span><span class="err">product</span><span class="w"> </span><span class="err">by</span><span class="w"> </span><span class="err">providing</span><span class="w"> </span><span class="err">an</span><span class="w"> </span><span class="err">Item</span><span class="w"> </span><span class="err">Group</span><span class="w"> </span><span class="err">ID</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">an</span><span class="w"> </span><span class="err">array</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">Item</span><span class="w"> </span><span class="err">IDs</span><span class="w">
+        </span><span class="s2">"cdda5942-19d1-4bc8-ac1b-0324a14ba6d5"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"a098b498-6f9f-4552-9a24-ec4614260e2e"</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example request </p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request POST <span class="se">\</span>
+  --url <span class="s1">'https://example.booqable.dev/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/book'</span>
+</code></pre>
+<blockquote>
+<p>This request returns JSON structured like this</p>
+</blockquote>
+
+<p>Reserves given items for the duration of the order. </p>
+
+<p>Bulk items can be booked with just a item group id and quantity, but trackable items offer the choice between just providing an item group id and quantity and then providing the specific item ids when starting the items or providing the item group ids as well as the item ids right away to reserve specific inventory items. You can also mix the two methods for the same item.</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>POST /orders/:id/book</code></p>
+<h2 id='save-an-order-as-a-concept'>Save an order as a concept</h2>
+<blockquote>
+<p>Example request </p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request POST <span class="se">\</span>
+  --url <span class="s1">'https://example.booqable.dev/api/1/orders/364a726b-419f-4156-ac29-71e2f1c6aefa/concept'</span>
+</code></pre>
+<blockquote>
+<p>This request returns JSON structured like this</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"order"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"364a726b-419f-4156-ac29-71e2f1c6aefa"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"concept"</span><span class="p">,</span><span class="w">
+        </span><span class="err">...</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>A newly created order is by default <code>new</code> and unlisted. To make it viewable for everyone you&#39;ll need to save it as a <code>concept</code>.</p>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>POST /orders/:id/concept</code></p>
+<h2 id='reserve-an-order'>Reserve an order</h2>
+<blockquote>
+<p>Example request </p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request POST <span class="se">\</span>
+  --url <span class="s1">'https://company.booqable.dev/api/1/orders/364a726b-419f-4156-ac29-71e2f1c6aefa/reserve'</span>
+</code></pre>
+<blockquote>
+<p>This request returns JSON structured like this</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"order"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"364a726b-419f-4156-ac29-71e2f1c6aefa"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"reserved"</span><span class="p">,</span><span class="w">
+        </span><span class="err">...</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Items not available error example</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"items_not_available"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"2"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"available"</span><span class="p">:</span><span class="w"> </span><span class="mi">99</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"need"</span><span class="p">:</span><span class="w"> </span><span class="mi">199</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Reserves an order and books all the products in it. This action is only allowed when the order status is either <code>new</code> or <code>concept</code>  </p>
+
+<p>If 1 or more products aren&#39;t available in the necessary quantity to fulfill the order a <code>items_not_available</code> error will be raised.</p>
+<h3 id='http-request-7'>HTTP Request</h3>
+<p><code>POST /orders/:id/reserve</code></p>
+<h2 id='start-order'>Start order</h2>
+<blockquote>
+<p>Request body example</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"ids"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="err">Bulk</span><span class="w"> </span><span class="err">products</span><span class="w"> </span><span class="err">just</span><span class="w"> </span><span class="err">need</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">product</span><span class="w"> </span><span class="err">group</span><span class="w"> </span><span class="err">ID</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">quantity</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="err">bulk_product_group_id</span><span class="p">:</span><span class="w"> </span><span class="err">quantity</span><span class="w">
+        </span><span class="s2">"23b6445d-c846-404b-8628-acb9023d8e5cc"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="err">Trackable</span><span class="w"> </span><span class="err">products</span><span class="w"> </span><span class="err">need</span><span class="w"> </span><span class="err">both</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">group</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">individual</span><span class="w"> </span><span class="err">product</span><span class="w"> </span><span class="err">ids</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="err">trackable_product_group_id</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">trackable_product_id_</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="err">trackable_product_id_</span><span class="mi">2</span><span class="w"> </span><span class="p">]</span><span class="w">
+        </span><span class="s2">"cdda5942-19d1-4bc8-ac1b-0324a14ba6d5"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"1953296d-98ea-4f08-b27e-0b7d6d9379df"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"a098b498-6f9f-4552-9a24-ec4614260e2e"</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example request </p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request POST <span class="se">\</span>
+  --url <span class="s1">'https://example.booqable.dev/api/1/orders/364a726b-419f-4156-ac29-71e2f1c6aefa/start'</span> <span class="se">\</span>
+  --header <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  --data <span class="s1">'{
+    "ids": {
+        "23b6445d-c846-404b-8628-acb9023d8e5cc": 2,
+        "cdda5942-19d1-4bc8-ac1b-0324a14ba6d5": [
+            "1953296d-98ea-4f08-b27e-0b7d6d9379df",
+            "a098b498-6f9f-4552-9a24-ec4614260e2e"
+        ]
+    }
+}'</span>
+</code></pre>
+<blockquote>
+<p>This request returns JSON structured like this</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"order"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"364a726b-419f-4156-ac29-71e2f1c6aefa"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"started"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"starts_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-01T08:00:00.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"stops_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-18T10:15:00.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"297f2584-5f6c-475d-919f-f8791aa6a06a"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"item_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>To start the oder we need to let the API know which products are being started and in what quantities.<br>
+We can do this by sending the <code>ids</code> parameter.
+The API expects a product group id and the quantity for bulk products, but for trackable products it expects both a product group id as well as the product ids of each item being started.</p>
+<h3 id='http-request-8'>HTTP Request</h3>
+<p><code>POST /orders/:id/start</code></p>
+
+<aside class="notice">
+    You don't have to start all the products in the order at once, you can start some now and then start others later.
+</aside>
+<h2 id='stop-order'>Stop order</h2>
+<blockquote>
+<p>Request body example</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"ids"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="err">//</span><span class="w"> </span><span class="err">Bulk</span><span class="w"> </span><span class="err">products</span><span class="w"> </span><span class="err">just</span><span class="w"> </span><span class="err">need</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">product</span><span class="w"> </span><span class="err">group</span><span class="w"> </span><span class="err">ID</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">quantity</span><span class="w">
+    </span><span class="err">//</span><span class="w"> </span><span class="err">bulk_product_group_id</span><span class="p">:</span><span class="w"> </span><span class="err">quantity</span><span class="w">
+    </span><span class="s2">"23b6445d-c846-404b-8628-acb9023d8e5cc"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="err">//</span><span class="w"> </span><span class="err">Trackable</span><span class="w"> </span><span class="err">products</span><span class="w"> </span><span class="err">need</span><span class="w"> </span><span class="err">both</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">group</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">individual</span><span class="w"> </span><span class="err">product</span><span class="w"> </span><span class="err">ids</span><span class="w">
+    </span><span class="err">//</span><span class="w"> </span><span class="err">trackable_product_group_id</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">trackable_product_id_</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="err">trackable_product_id_</span><span class="mi">2</span><span class="w"> </span><span class="p">]</span><span class="w">
+    </span><span class="s2">"cdda5942-19d1-4bc8-ac1b-0324a14ba6d5"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"1953296d-98ea-4f08-b27e-0b7d6d9379df"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"a098b498-6f9f-4552-9a24-ec4614260e2e"</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example request </p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request POST <span class="se">\</span>
+  --url <span class="s1">'https://example.booqable.dev/api/1/orders/364a726b-419f-4156-ac29-71e2f1c6aefa/stop'</span> <span class="se">\</span>
+  --header <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  --data <span class="s1">'{
+  "ids": {
+    "23b6445d-c846-404b-8628-acb9023d8e5cc": 2,
+    "cdda5942-19d1-4bc8-ac1b-0324a14ba6d5": [
+      "1953296d-98ea-4f08-b27e-0b7d6d9379df",
+      "a098b498-6f9f-4552-9a24-ec4614260e2e"
+    ]
+  }
+}'</span>
+</code></pre>
+<blockquote>
+<p>This request returns JSON structured like this</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"order"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"364a726b-419f-4156-ac29-71e2f1c6aefa"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"reserved"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"starts_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-01T08:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"stops_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-18T10:15:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"297f2584-5f6c-475d-919f-f8791aa6a06a"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"item_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>To stop the oder we need to let the API know which products are being stopped and in what quantities.<br>
+We can do this by sending the <code>ids</code> parameter.
+The API expects a product group id and the quantity for bulk products, but for trackable products it expects both a product group id as well as the product ids of each item being stopped.</p>
+<h3 id='http-request-9'>HTTP Request</h3>
+<p><code>POST /orders/:id/stop</code></p>
+<h2 id='cancel-order'>Cancel order</h2>
+<blockquote>
+<p>Example request </p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request POST <span class="se">\</span>
+  --url https://example.booqable.dev/api/1/orders/364a726b-419f-4156-ac29-71e2f1c6aefa/cancel <span class="se">\</span>
+</code></pre>
+<blockquote>
+<p>This request returns JSON structured like this</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"order"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"364a726b-419f-4156-ac29-71e2f1c6aefa"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"canceled"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"starts_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-01T08:00:00.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"stops_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-18T10:15:00.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"297f2584-5f6c-475d-919f-f8791aa6a06a"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"item_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Cancels an order, can only be called on orders with any of these statues: <code>new</code>, <code>concept</code>, <code>reserved</code>.<br>
+Canceling a reserved order will free all the products that were reserved with it and cancel all plannings.</p>
+<h3 id='http-request-10'>HTTP Request</h3>
+<p><code>POST /orders/:id/cancel</code></p>
+<h2 id='revert-order-to-a-given-status'>Revert order to a given status</h2>
+<blockquote>
+<p>Example request </p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request POST <span class="se">\</span>
+  --url <span class="s1">'https://example.booqable.dev/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/revert?status=concept'</span>
+</code></pre>
+<blockquote>
+<p>This request returns JSON structured like this</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"order"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ea024c26-c322-485b-85ad-f67b890e5346"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"concept"</span><span class="p">,</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>What status an order can be reverted to depends on it&#39;s current status:</p>
+
+<table><thead>
+<tr>
+<th>Current status</th>
+<th>Available statuses</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>reserved</td>
+<td>concept</td>
+</tr>
+<tr>
+<td>started</td>
+<td>concept, reserved</td>
+</tr>
+<tr>
+<td>stopped</td>
+<td>concept, reserved, started</td>
+</tr>
+</tbody></table>
+<h3 id='http-request-11'>HTTP Request</h3>
+<p><code>POST /orders/:id/revert?status=:status</code></p>
+<h3 id='query-parameters-2'>Query parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>status</td>
+<td>Status to revert to</td>
+</tr>
+</tbody></table>
+<h2 id='archive-an-order'>Archive an order</h2>
+<blockquote>
+<p>Example request </p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request POST <span class="se">\</span>
+  --url <span class="s1">'https://example.booqable.dev/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/archive'</span>
+</code></pre>
+<p>Archives an order</p>
+<h3 id='http-request-12'>HTTP Request</h3>
+<p><code>POST /orders/:id/archive</code></p>
+<h2 id='duplicate-an-order'>Duplicate an order</h2>
+<blockquote>
+<p>Example request </p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request POST <span class="se">\</span>
+  --url <span class="s1">'https://example.booqable.dev/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/duplicate'</span>
+</code></pre>
+<blockquote>
+<p>This request returns JSON structured like this</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"order"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2c0006d9-d93a-40ea-b9c8-ed4a9d06d3f3"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"concept"</span><span class="p">,</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Duplicates an existing order to create a new order</p>
+<h3 id='http-request-13'>HTTP Request</h3>
+<p><code>POST /orders/:id/duplicate</code></p>
+<h2 id='check-availability'>Check availability</h2>
+<blockquote>
+<p>Example request </p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request GET <span class="se">\</span>
+  --url <span class="s1">'https://example.booqable.dev/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/available'</span>
+</code></pre>
+<blockquote>
+<p>This request returns JSON structured like this</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="err">//</span><span class="w"> </span><span class="err">Bulk</span><span class="w"> </span><span class="err">product</span><span class="w"> </span><span class="err">group</span><span class="w"> </span><span class="err">ID</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">quanity</span><span class="w">
+    </span><span class="s2">"23b6445d-c846-404b-8628-acb9023d8e5c"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"available"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+  </span><span class="err">//</span><span class="w"> </span><span class="err">Trackable</span><span class="w"> </span><span class="err">product</span><span class="w"> </span><span class="err">group</span><span class="w"> </span><span class="err">ID</span><span class="p">,</span><span class="w"> </span><span class="err">quantities</span><span class="p">,</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">IDs</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">individual</span><span class="w"> </span><span class="err">products</span><span class="w">
+    </span><span class="s2">"cdda5942-19d1-4bc8-ac1b-0324a14ba6d5"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"available"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"available_stock_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"53dde854-cc61-4a11-8357-181c0142c249"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"a394aaab-3804-4dcb-9178-774502ebe126"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"85dc0d2e-2dfb-42b2-be18-0217002cb66f"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"a680bcfd-c56a-4efa-8107-3331109b1895"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"1c202cfe-8563-4654-bbb9-b6a28fab5458"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"8dea39ad-5228-4aae-96bb-5e8c8b186c6f"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"7bad5f7e-1039-4c62-9359-3a1a3f35b7c1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"faf41263-e811-4f4a-8d6d-95c4efb68817"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"1953296d-98ea-4f08-b27e-0b7d6d9379df"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"a098b498-6f9f-4552-9a24-ec4614260e2e"</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Gets all the available products for the duration of the given order.</p>
+<h3 id='http-request-14'>HTTP Request</h3>
+<p><code>GET /orders/:id/available</code></p>
+<h2 id='recalculate-prices'>Recalculate prices</h2>
+<blockquote>
+<p>Example request </p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request POST <span class="se">\</span>
+  --url <span class="s1">'https://company.booqable.dev/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/recalculate_prices'</span>
+</code></pre>
+<p>Recalculates the prices for the given order</p>
+<h3 id='http-request-15'>HTTP Request</h3>
+<p><code>POST /orders/:id/recalculate_prices</code></p>
+<h1 id='planning'>Planning</h1>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Integer</td>
+<td><code>Readonly</code> Unique primary id</td>
+</tr>
+<tr>
+<td>order_id</td>
+<td>Integer</td>
+<td><code>Readonly</code> ID of the associated order</td>
+</tr>
+<tr>
+<td>item_id</td>
+<td>Integer</td>
+<td>ID of the associated product</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>Integer</td>
+<td>Amount booked</td>
+</tr>
+<tr>
+<td>price_each_in_cents</td>
+<td>Integer</td>
+<td>Price per quantity in cents</td>
+</tr>
+<tr>
+<td>reserved</td>
+<td>Boolean</td>
+<td>Whether the planning is reserved</td>
+</tr>
+<tr>
+<td>started</td>
+<td>Integer</td>
+<td>Number of stock started</td>
+</tr>
+<tr>
+<td>stopped</td>
+<td>Integer</td>
+<td>Number of stock stopped</td>
+</tr>
+<tr>
+<td>charge_label</td>
+<td>String</td>
+<td>Label of the price charge</td>
+</tr>
+<tr>
+<td>charge_length</td>
+<td>Integer</td>
+<td>Length of the price charge in seconds</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>DateTime</td>
+<td><code>Readonly</code> When the planning was created</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>DateTime</td>
+<td><code>Readonly</code> When the planning was last updated</td>
+</tr>
+</tbody></table>
+<h2 id='delete-a-planning'>Delete a planning</h2>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request DELETE <span class="se">\</span>
+  --url <span class="s1">'https://example.booqable.dev/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/plannings/b649dcc8-2c93-45bd-88f3-35e1a8be8356'</span>
+</code></pre>
+<p>Deletes a planning from an order.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>DELETE /orders/:order_id/plannings/:id</code></p>
+<h1 id='order-lines'>Order Lines</h1>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Integer</td>
+<td><code>Readonly</code> Unique primary id</td>
+</tr>
+<tr>
+<td>title</td>
+<td>String</td>
+<td><code>Readonly</code> ID of the associated order</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>Integer</td>
+<td>Amount booked</td>
+</tr>
+<tr>
+<td>price_each_in_cents</td>
+<td>Integer</td>
+<td>Price per quantity in cents</td>
+</tr>
+<tr>
+<td>price_in_cents</td>
+<td>Boolean</td>
+<td><code>Readonly</code> Total price in cents</td>
+</tr>
+<tr>
+<td>price_with_tax_in_cents</td>
+<td>Integer</td>
+<td><code>Readonly</code> Total price with tax in cents</td>
+</tr>
+<tr>
+<td>display_price_in_cents</td>
+<td>Integer</td>
+<td><code>Readonly</code> Display price in cents, depending if prices are set to including or excluding tax</td>
+</tr>
+<tr>
+<td>position</td>
+<td>String</td>
+<td>Position of the line on the order</td>
+</tr>
+<tr>
+<td>planning_id</td>
+<td>Integer</td>
+<td><code>Readonly</code> ID of the associated planning. May be blank if there is no planning associated</td>
+</tr>
+<tr>
+<td>order_id</td>
+<td>Integer</td>
+<td><code>Readonly</code> ID of the associated order</td>
+</tr>
+<tr>
+<td>tax_category_id</td>
+<td>Integer</td>
+<td>ID of the associated tax category</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>DateTime</td>
+<td><code>Readonly</code> When the planning was created</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>DateTime</td>
+<td><code>Readonly</code> When the planning was last updated</td>
+</tr>
+</tbody></table>
+
+<p>When retrieving a specific line it will also include the associated order and tax category.</p>
+<h2 id='create-a-new-line'>Create a new line</h2>
+<blockquote>
+<p>Request body example</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"line"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nikon FE"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price_each_in_cents"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request POST <span class="se">\</span>
+  --url <span class="s1">'https://example.booqable.dev/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/lines'</span> <span class="se">\</span>
+  --header <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  --data <span class="s1">'{
+      "line": {
+        "title": "Nikon FE",
+        "quantity": 1,
+        "price_each_in_cents": 500
+      }
+    }'</span>
+</code></pre>
+<blockquote>
+<p>This request returns JSON structured like this </p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"line"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"83a3915a-80af-4c4f-ac77-35b1b2498964"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nikon FE"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price_each_in_cents"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ea024c26-c322-485b-85ad-f67b890e5346"</span><span class="p">,</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+    </span><span class="s2">"order"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ea024c26-c322-485b-85ad-f67b890e5346"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"item_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"23b6445d-c846-404b-8628-acb9023d8e5c"</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="err">...</span><span class="w">
+      </span><span class="s2">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"63a28c67-259c-4a27-a482-2aac3c5d705d"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Customer Deee"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"two@world.global"</span><span class="p">,</span><span class="w">
+        </span><span class="err">...</span><span class="w">
+        </span><span class="s2">"orders"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ea024c26-c322-485b-85ad-f67b890e5346"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"concept"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"63a28c67-259c-4a27-a482-2aac3c5d705d"</span><span class="p">,</span><span class="w">
+            </span><span class="err">...</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"plannings"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12e8c770-9025-4243-8b3b-91de340218db"</span><span class="p">,</span><span class="w">
+          </span><span class="err">...</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="s2">"stock_item_plannings"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+      </span><span class="s2">"tax_values"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+      </span><span class="s2">"lines"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"83a3915a-80af-4c4f-ac77-35b1b2498964"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nikon FE"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ea024c26-c322-485b-85ad-f67b890e5346"</span><span class="p">,</span><span class="w">
+          </span><span class="err">...</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"80879b22-5355-4902-88b2-b6c0f3e5dca5"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Arri Alexa"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ea024c26-c322-485b-85ad-f67b890e5346"</span><span class="p">,</span><span class="w">
+          </span><span class="err">...</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Creates a new line in an order with the provided details.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST /orders/:order_id/lines</code></p>
+<h2 id='update-a-line'>Update a line</h2>
+<blockquote>
+<p>Request body example</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"line"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request PATCH <span class="se">\</span>
+  --url <span class="s1">'https://example.booqable.dev/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/lines/83a3915a-80af-4c4f-ac77-35b1b2498964'</span> <span class="se">\</span>
+  --header <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  --data <span class="s1">'{
+      "line": {
+        "quantity": 2
+      }
+    }'</span>
+</code></pre><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>PUT /orders/:order_id/lines/:id</code> or<br>
+<code>PATCH /orders/:order_id/lines/:id</code></p>
+
+<aside class="notice">
+    Sending a <code>PUT</code> request will return the resource with any changes that were made, but sending a <code>PATCH</code> request will always return a <code>204 NO CONTENT</code>
+</aside>
+<h2 id='update-line-positions'>Update line positions</h2>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request POST <span class="se">\</span>
+  --url <span class="s1">'https://company.booqable.dev/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/lines/update_positions?ids[]=24fdbdf2-290e-423d-864b-7214a3ae96b3&amp;ids[]=80879b22-5355-4902-88b2-b6c0f3e5dca5
+</span></code></pre>
+<p>Updates the order of lines in an order.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST /orders/:order_id/lines/update_positions?ids[]=:id1&amp;ids[]=:id2...</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>ids[]</strong></td>
+<td>Line id, each line id needs it&#39;s own <code>ids[]</code> and their order determines the update positions</td>
+</tr>
+</tbody></table>
+
+<p>Required in <strong>bold</strong></p>
+<h2 id='remove-a-line'>Remove a line</h2>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request DELETE <span class="se">\</span>
+  --url <span class="s1">'https://example.booqable.dev/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/lines/83a3915a-80af-4c4f-ac77-35b1b2498964'</span>
+</code></pre>
+<p>Delete specified line</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>DESTROY /orders/:order_id/lines/:id</code></p>
+
+      </div>
+      <div class="dark-box">
+      </div>
+    </div>
+  </body>
+</html>

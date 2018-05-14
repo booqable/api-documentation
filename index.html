@@ -379,7 +379,7 @@
 <p>To interact with our API, first, you have to have a means of authentification, here&#39;s how to create a shiny new API key.</p>
 
 <ol>
-<li>Go to your account settings page<br>
+<li>Go to your account settings page
 <code>{company-name-here}.booqable.com/account/edit</code></li>
 <li>Name your new key</li>
 <li>Click &quot;Create new key&quot;</li>
@@ -389,8 +389,8 @@
   You now have a <b>Booqable API key!</b>
 </aside>
 
-<p>You can manage your API keys from your account.<br>
-You can have multiple API keys active at one time. </p>
+<p>You can manage your API keys from your account.
+You can have multiple API keys active at one time.</p>
 
 <aside class="warning">
   Your API keys carry many privileges, so be sure to keep them secret! <br>
@@ -409,13 +409,13 @@ The format is as follows:</p>
 </aside>
 <h1 id='authentication'>Authentication</h1>
 <blockquote>
-<p>Example of an authorized request  </p>
+<p>Example of an authorized request</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl --request GET <span class="se">\</span>
-  --url <span class="s1">'https://company.booqable.dev/api/1/customers?api_key=API_KEY_HERE'</span>
+  --url <span class="s1">'https://company.booqable.com/api/1/customers?api_key=API_KEY_HERE'</span>
 </code></pre>
-<p>You authenticate to the Booqable API by providing on of your API keys in the request.<br>
-This can be done by appending <code>?api_key=API_KEY_HERE</code> to the end of your request URL.  </p>
+<p>You authenticate to the Booqable API by providing on of your API keys in the request.
+This can be done by appending <code>?api_key=API_KEY_HERE</code> to the end of your request URL.</p>
 
 <aside class="notice">
   A request sent with a correct API key will recieve a session cookie in the response. You can use this cookie for further requests.
@@ -426,7 +426,7 @@ This can be done by appending <code>?api_key=API_KEY_HERE</code> to the end of y
 </aside>
 <h1 id='customers'>Customers</h1>
 <blockquote>
-<p>Example of a customer </p>
+<p>Example of a customer</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -592,7 +592,7 @@ This can be done by appending <code>?api_key=API_KEY_HERE</code> to the end of y
 </span></code></pre>
 <p>This endpoint retrieves all customers and can paginated</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET /customers</code> or<br>
+<p><code>GET /customers</code> or
 <code>GET /customers?page=:page&amp;per=:per</code></p>
 <h3 id='query-parameters'>Query parameters</h3>
 <table><thead>
@@ -658,7 +658,7 @@ This can be done by appending <code>?api_key=API_KEY_HERE</code> to the end of y
 <p>Example request</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl --request POST <span class="se">\</span>
-  --url <span class="s1">'https://example.booqable.dev/api/1/customers'</span> <span class="se">\</span>
+  --url <span class="s1">'https://example.booqable.com/api/1/customers'</span> <span class="se">\</span>
   --header <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
   --data <span class="s1">'{
     "customer": {
@@ -701,13 +701,13 @@ This can be done by appending <code>?api_key=API_KEY_HERE</code> to the end of y
 <p>Get a customer using their id</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl --request GET <span class="se">\</span>
-  --url <span class="s1">'https://example.booqable.dev/api/1/customers/b496c71d-2211-4e27-bf80-3058e5294358'</span>
+  --url <span class="s1">'https://example.booqable.com/api/1/customers/b496c71d-2211-4e27-bf80-3058e5294358'</span>
 </code></pre>
 <blockquote>
 <p>Get a customer using their number</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl --request GET <span class="se">\</span>
-  --url <span class="s1">'https://example.booqable.dev/api/1/customers/1'</span>
+  --url <span class="s1">'https://example.booqable.com/api/1/customers/1'</span>
 </code></pre>
 <blockquote>
 <p>This request returns JSON structured like this</p>
@@ -723,7 +723,7 @@ This can be done by appending <code>?api_key=API_KEY_HERE</code> to the end of y
 </span></code></pre>
 <p>This endpoint will retrieve a single customer by id or number</p>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>GET /customers/:id</code> or<br>
+<p><code>GET /customers/:id</code> or
 <code>GET /customers/:number</code></p>
 <h2 id='update-customer'>Update customer</h2>
 <blockquote>
@@ -761,7 +761,7 @@ This can be done by appending <code>?api_key=API_KEY_HERE</code> to the end of y
 </span></code></pre>
 <p>Update the details of a customer</p>
 <h3 id='http-request-4'>HTTP Request</h3>
-<p><code>PUT /customers/:id/update</code> or<br>
+<p><code>PUT /customers/:id/update</code> or
 <code>PATCH /customer/:id/update</code></p>
 
 <aside class="notice">
@@ -772,7 +772,7 @@ This can be done by appending <code>?api_key=API_KEY_HERE</code> to the end of y
 <p>Example request</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl --request DELETE <span class="se">\</span>
-  --url <span class="s1">'https://example.booqable.dev/api/1/customers/b496c71d-2211-4e27-bf80-3058e5294358/archive'</span>
+  --url <span class="s1">'https://example.booqable.com/api/1/customers/b496c71d-2211-4e27-bf80-3058e5294358/archive'</span>
 </code></pre>
 <blockquote>
 <p>This request returns JSON structured like this</p>
@@ -794,7 +794,7 @@ This can be done by appending <code>?api_key=API_KEY_HERE</code> to the end of y
 <p>Example request</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl --request POST <span class="se">\</span>
-  --url <span class="s1">'https://example.booqable.dev/api/1/customers/b496c71d-2211-4e27-bf80-3058e5294358/restore'</span>
+  --url <span class="s1">'https://example.booqable.com/api/1/customers/b496c71d-2211-4e27-bf80-3058e5294358/restore'</span>
 </code></pre>
 <blockquote>
 <p>This request returns JSON structured like this</p>
@@ -861,7 +861,7 @@ This can be done by appending <code>?api_key=API_KEY_HERE</code> to the end of y
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Product groups define the kind of products that are available but not individual stock items.<br>
+<p>Product groups define the kind of products that are available but not individual stock items.
 A product will always belong to a product group.</p>
 
 <table><thead>
@@ -964,7 +964,7 @@ A product will always belong to a product group.</p>
 <p>Example request</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl --request GET <span class="se">\</span>
-  --url <span class="s1">'https://example.booqable.dev/api/1/product_groups'</span>
+  --url <span class="s1">'https://example.booqable.com/api/1/product_groups'</span>
 </code></pre>
 <blockquote>
 <p>This request returns JSON structured like this</p>
@@ -1023,7 +1023,7 @@ A product will always belong to a product group.</p>
 </span></code></pre>
 <p>This endpoint retrieves all product groups and can paginated</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET /product_groups</code> or<br>
+<p><code>GET /product_groups</code> or
 <code>GET /product_groups?per=:per&amp;page=:page</code></p>
 <h3 id='query-parameters'>Query parameters</h3>
 <table><thead>
@@ -1084,7 +1084,7 @@ A product will always belong to a product group.</p>
 <p>Example request</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl --request POST <span class="se">\</span>
-  --url <span class="s1">'https://example.booqable.dev/api/1/product_groups'</span> <span class="se">\</span>
+  --url <span class="s1">'https://example.booqable.com/api/1/product_groups'</span> <span class="se">\</span>
   --header <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
   --data <span class="s1">'{
     "product_group": {
@@ -1135,7 +1135,7 @@ A product will always belong to a product group.</p>
 <p>Example request</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl --request GET <span class="se">\</span>
-  --url <span class="s1">'https://example.booqable.dev/api/1/product_groups/6107b3cc-03a8-4935-906c-20e2c33db7e0'</span>
+  --url <span class="s1">'https://example.booqable.com/api/1/product_groups/6107b3cc-03a8-4935-906c-20e2c33db7e0'</span>
 </code></pre>
 <blockquote>
 <p>This request returns JSON structured like this</p>
@@ -1193,7 +1193,7 @@ A product will always belong to a product group.</p>
 <p>Example request</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl --request PATCH <span class="se">\</span>
-  --url <span class="s1">'https://example.booqable.dev/api/1/product_groups/6107b3cc-03a8-4935-906c-20e2c33db7e0'</span> <span class="se">\</span>
+  --url <span class="s1">'https://example.booqable.com/api/1/product_groups/6107b3cc-03a8-4935-906c-20e2c33db7e0'</span> <span class="se">\</span>
   --header <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
   --cookie <span class="s1">'request_method=GET; _rental_api_session=NFBoY2IxclJiQTBjdzZ4aWkxUmFUNzNZYjlXckJPbU9sUUh2OTVlS2c4NElRMW4wRGFMYlE5Mnozam9JMm9GSUhlVU9HYjNudFJJS3NhSzNGUDdaYVQzZk5tWjVwUmdQRXlvaGZXVDRXb2hmYWVIZ0t1eVYyaU54b0w3bXJ5Tm9mK0lseWhSOTZ0L28yU1pkOUYrbVdWUW5nbDNHQlU3K0d1RHdPdVJqbGdRZERwWVhsTGYyNlpsSHlxclBVck5zeVp1NXJ0N0g5eHNtaFljeDh1ekp4MWxYd3QxZTlKM2xXMFUxRkx5N1NRTkVVQjB0RnduaGFzOTNlSmJQYkYzcVdxMmRWWFVpbCsrSldxcEY4ZWJPaWM0VjRpQnZVMisyQTlEWVhjc3kxQ0Q5N1R5SFF6eSs1R2lDdjBzVDduNVJ4ejJ1eWJ5STFFdzVNWTBrQTJvSW02c3ZralRockQ0bWRUZ3RQdXBHMVdJPS0tNVhVTXY1RGthZEYxSXBBOEtmN0tiZz09--620dd5ead23e2e80caa59daed438a2e1f502797c'</span> <span class="se">\</span>
   --data <span class="s1">'{
@@ -1204,7 +1204,7 @@ A product will always belong to a product group.</p>
 </code></pre>
 <p>Update the properties of a product group</p>
 <h3 id='http-request-4'>HTTP Request</h3>
-<p><code>PUT /product_groups/:id</code> or<br>
+<p><code>PUT /product_groups/:id</code> or
 <code>PATH /product_groups/:id</code></p>
 
 <aside class="notice">
@@ -1215,7 +1215,7 @@ A product will always belong to a product group.</p>
 <p>Example request</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl --request DELETE <span class="se">\</span>
-  --url <span class="s1">'https://example.booqable.dev/api/1/product_groups/6107b3cc-03a8-4935-906c-20e2c33db7e0/archive'</span>
+  --url <span class="s1">'https://example.booqable.com/api/1/product_groups/6107b3cc-03a8-4935-906c-20e2c33db7e0/archive'</span>
 </code></pre>
 <p>Archives a product group</p>
 <h3 id='http-request-5'>HTTP Request</h3>
@@ -1225,7 +1225,7 @@ A product will always belong to a product group.</p>
 <p>Example request</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl --request POST <span class="se">\</span>
-  --url <span class="s1">'https://company.booqable.dev/api/1/product_groups/6107b3cc-03a8-4935-906c-20e2c33db7e0/restore'</span>
+  --url <span class="s1">'https://company.booqable.com/api/1/product_groups/6107b3cc-03a8-4935-906c-20e2c33db7e0/restore'</span>
 </code></pre><h3 id='http-request-6'>HTTP Request</h3>
 <p><code>POST /product_groups/:id/restore</code></p>
 <h2 id='check-availability'>Check availability</h2>
@@ -1233,7 +1233,7 @@ A product will always belong to a product group.</p>
 <p>Example request</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl --request GET <span class="se">\</span>
-  --url <span class="s1">'https://company.booqable.dev/api/1/products/23b6445d-c846-404b-8628-acb9023d8e5c/availability?interval=month&amp;till=01-02-2018&amp;from=01-01-2018
+  --url <span class="s1">'https://company.booqable.com/api/1/products/23b6445d-c846-404b-8628-acb9023d8e5c/availability?interval=month&amp;till=01-02-2018&amp;from=01-01-2018
 </span></code></pre>
 <blockquote>
 <p>This request returns JSON structured like this</p>
@@ -1275,7 +1275,7 @@ A product will always belong to a product group.</p>
 </span></code></pre>
 <p>Provides an availability overview of the specified product in the provided timeframe</p>
 <h3 id='http-request-7'>HTTP Request</h3>
-<p><code>GET /products/:product_id/availablility/?from=:from&amp;till=:till</code> or<br>
+<p><code>GET /products/:product_id/availablility/?from=:from&amp;till=:till</code> or
 <code>GET /products/:product_id/availablility/?from=:from&amp;till=:till&amp;interval=:interval</code></p>
 <h3 id='query-parameters-2'>Query parameters</h3>
 <table><thead>
@@ -1310,7 +1310,7 @@ A product will always belong to a product group.</p>
 <p>Example request</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl --request GET <span class="se">\</span>
-  --url <span class="s1">'https://example.booqable.dev/api/1/products/c560ea83-5231-4052-831e-c26db0121c1b/prices'</span>
+  --url <span class="s1">'https://example.booqable.com/api/1/products/c560ea83-5231-4052-831e-c26db0121c1b/prices'</span>
 </code></pre>
 <blockquote>
 <p>This request returns JSON structured like this</p>
@@ -1416,7 +1416,7 @@ A product will always belong to a product group.</p>
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This resource contains all the information about an order, such as the period, customer and products booked on it.<br>
+<p>This resource contains all the information about an order, such as the period, customer and products booked on it.
 It has the following attributes:</p>
 
 <table><thead>
@@ -1518,7 +1518,7 @@ It has the following attributes:</p>
 <p>Example request</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl --request GET <span class="se">\</span>
-  --url <span class="s1">'https://example.booqable.dev/api/1/orders'</span>
+  --url <span class="s1">'https://example.booqable.com/api/1/orders'</span>
 </code></pre>
 <blockquote>
 <p>This request returns JSON structured like this</p>
@@ -1575,8 +1575,8 @@ It has the following attributes:</p>
 </span></code></pre>
 <p>This endpoint retrieves all orders and can paginated</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET /orders</code> or<br>
-<code>GET /orders?per=:per&amp;page=:page</code> or<br>
+<p><code>GET /orders</code> or
+<code>GET /orders?per=:per&amp;page=:page</code> or
 <code>GET /orders?q=:query</code></p>
 <h3 id='query-parameters'>Query parameters</h3>
 <table><thead>
@@ -1629,7 +1629,7 @@ It has the following attributes:</p>
 <p>Example request</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl --request POST <span class="se">\</span>
---url <span class="s1">'https://example.booqable.dev/api/1/orders'</span> <span class="se">\</span>
+--url <span class="s1">'https://example.booqable.com/api/1/orders'</span> <span class="se">\</span>
 --header <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
 --data <span class="s1">'
     {
@@ -1665,7 +1665,7 @@ It has the following attributes:</p>
 <p>Example request</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl --request GET <span class="se">\</span>
-  --url <span class="s1">'https://example.booqable.dev/api/1/orders/364a726b-419f-4156-ac29-71e2f1c6aefa'</span>
+  --url <span class="s1">'https://example.booqable.com/api/1/orders/364a726b-419f-4156-ac29-71e2f1c6aefa'</span>
 </code></pre>
 <blockquote>
 <p>This request returns JSON structured like this</p>
@@ -1681,7 +1681,7 @@ It has the following attributes:</p>
 </span></code></pre>
 <p>This endpoint will retrieve a single order by id or number</p>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>GET /orders/:id</code> or<br>
+<p><code>GET /orders/:id</code> or
 <code>GET /orders/:number</code></p>
 <h2 id='update-order'>Update order</h2>
 <blockquote>
@@ -1694,10 +1694,10 @@ It has the following attributes:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
-<p>Example request </p>
+<p>Example request</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl --request PATCH <span class="se">\</span>
---url <span class="s1">'https://example.booqable.dev/api/1/orders/364a726b-419f-4156-ac29-71e2f1c6aefa'</span> <span class="se">\</span>
+--url <span class="s1">'https://example.booqable.com/api/1/orders/364a726b-419f-4156-ac29-71e2f1c6aefa'</span> <span class="se">\</span>
 --header <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
 --data <span class="s1">'{
     "order": {
@@ -1705,7 +1705,7 @@ It has the following attributes:</p>
     }
 }'</span>
 </code></pre><h3 id='http-request-4'>HTTP Request</h3>
-<p><code>PUT /orders/:id</code> or<br>
+<p><code>PUT /orders/:id</code> or
 <code>PATCH /orders/:id</code></p>
 
 <aside class="notice">
@@ -1729,26 +1729,26 @@ It has the following attributes:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
-<p>Example request </p>
+<p>Example request</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl --request POST <span class="se">\</span>
-  --url <span class="s1">'https://example.booqable.dev/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/book'</span>
+  --url <span class="s1">'https://example.booqable.com/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/book'</span>
 </code></pre>
 <blockquote>
 <p>This request returns JSON structured like this</p>
 </blockquote>
 
-<p>Reserves given items for the duration of the order. </p>
+<p>Reserves given items for the duration of the order.</p>
 
 <p>Bulk items can be booked with just a item group id and quantity, but trackable items offer the choice between just providing an item group id and quantity and then providing the specific item ids when starting the items or providing the item group ids as well as the item ids right away to reserve specific inventory items. You can also mix the two methods for the same item.</p>
 <h3 id='http-request-5'>HTTP Request</h3>
 <p><code>POST /orders/:id/book</code></p>
 <h2 id='save-an-order-as-a-concept'>Save an order as a concept</h2>
 <blockquote>
-<p>Example request </p>
+<p>Example request</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl --request POST <span class="se">\</span>
-  --url <span class="s1">'https://example.booqable.dev/api/1/orders/364a726b-419f-4156-ac29-71e2f1c6aefa/concept'</span>
+  --url <span class="s1">'https://example.booqable.com/api/1/orders/364a726b-419f-4156-ac29-71e2f1c6aefa/concept'</span>
 </code></pre>
 <blockquote>
 <p>This request returns JSON structured like this</p>
@@ -1767,10 +1767,10 @@ It has the following attributes:</p>
 <p><code>POST /orders/:id/concept</code></p>
 <h2 id='reserve-an-order'>Reserve an order</h2>
 <blockquote>
-<p>Example request </p>
+<p>Example request</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl --request POST <span class="se">\</span>
-  --url <span class="s1">'https://company.booqable.dev/api/1/orders/364a726b-419f-4156-ac29-71e2f1c6aefa/reserve'</span>
+  --url <span class="s1">'https://company.booqable.com/api/1/orders/364a726b-419f-4156-ac29-71e2f1c6aefa/reserve'</span>
 </code></pre>
 <blockquote>
 <p>This request returns JSON structured like this</p>
@@ -1799,7 +1799,7 @@ It has the following attributes:</p>
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Reserves an order and books all the products in it. This action is only allowed when the order status is either <code>new</code> or <code>concept</code>  </p>
+<p>Reserves an order and books all the products in it. This action is only allowed when the order status is either <code>new</code> or <code>concept</code></p>
 
 <p>If 1 or more products aren&#39;t available in the necessary quantity to fulfill the order a <code>items_not_available</code> error will be raised.</p>
 <h3 id='http-request-7'>HTTP Request</h3>
@@ -1823,10 +1823,10 @@ It has the following attributes:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
-<p>Example request </p>
+<p>Example request</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl --request POST <span class="se">\</span>
-  --url <span class="s1">'https://example.booqable.dev/api/1/orders/364a726b-419f-4156-ac29-71e2f1c6aefa/start'</span> <span class="se">\</span>
+  --url <span class="s1">'https://example.booqable.com/api/1/orders/364a726b-419f-4156-ac29-71e2f1c6aefa/start'</span> <span class="se">\</span>
   --header <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
   --data <span class="s1">'{
     "ids": {
@@ -1854,7 +1854,7 @@ It has the following attributes:</p>
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>To start the oder we need to let the API know which products are being started and in what quantities.<br>
+<p>To start the oder we need to let the API know which products are being started and in what quantities.
 We can do this by sending the <code>ids</code> parameter.
 The API expects a product group id and the quantity for bulk products, but for trackable products it expects both a product group id as well as the product ids of each item being started.</p>
 <h3 id='http-request-8'>HTTP Request</h3>
@@ -1882,10 +1882,10 @@ The API expects a product group id and the quantity for bulk products, but for t
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
-<p>Example request </p>
+<p>Example request</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl --request POST <span class="se">\</span>
-  --url <span class="s1">'https://example.booqable.dev/api/1/orders/364a726b-419f-4156-ac29-71e2f1c6aefa/stop'</span> <span class="se">\</span>
+  --url <span class="s1">'https://example.booqable.com/api/1/orders/364a726b-419f-4156-ac29-71e2f1c6aefa/stop'</span> <span class="se">\</span>
   --header <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
   --data <span class="s1">'{
   "ids": {
@@ -1913,17 +1913,17 @@ The API expects a product group id and the quantity for bulk products, but for t
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>To stop the oder we need to let the API know which products are being stopped and in what quantities.<br>
+<p>To stop the oder we need to let the API know which products are being stopped and in what quantities.
 We can do this by sending the <code>ids</code> parameter.
 The API expects a product group id and the quantity for bulk products, but for trackable products it expects both a product group id as well as the product ids of each item being stopped.</p>
 <h3 id='http-request-9'>HTTP Request</h3>
 <p><code>POST /orders/:id/stop</code></p>
 <h2 id='cancel-order'>Cancel order</h2>
 <blockquote>
-<p>Example request </p>
+<p>Example request</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl --request POST <span class="se">\</span>
-  --url https://example.booqable.dev/api/1/orders/364a726b-419f-4156-ac29-71e2f1c6aefa/cancel <span class="se">\</span>
+  --url https://example.booqable.com/api/1/orders/364a726b-419f-4156-ac29-71e2f1c6aefa/cancel <span class="se">\</span>
 </code></pre>
 <blockquote>
 <p>This request returns JSON structured like this</p>
@@ -1941,16 +1941,16 @@ The API expects a product group id and the quantity for bulk products, but for t
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Cancels an order, can only be called on orders with any of these statues: <code>new</code>, <code>concept</code>, <code>reserved</code>.<br>
+<p>Cancels an order, can only be called on orders with any of these statues: <code>new</code>, <code>concept</code>, <code>reserved</code>.
 Canceling a reserved order will free all the products that were reserved with it and cancel all plannings.</p>
 <h3 id='http-request-10'>HTTP Request</h3>
 <p><code>POST /orders/:id/cancel</code></p>
 <h2 id='revert-order-to-a-given-status'>Revert order to a given status</h2>
 <blockquote>
-<p>Example request </p>
+<p>Example request</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl --request POST <span class="se">\</span>
-  --url <span class="s1">'https://example.booqable.dev/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/revert?status=concept'</span>
+  --url <span class="s1">'https://example.booqable.com/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/revert?status=concept'</span>
 </code></pre>
 <blockquote>
 <p>This request returns JSON structured like this</p>
@@ -2001,20 +2001,20 @@ Canceling a reserved order will free all the products that were reserved with it
 </tbody></table>
 <h2 id='archive-an-order'>Archive an order</h2>
 <blockquote>
-<p>Example request </p>
+<p>Example request</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl --request POST <span class="se">\</span>
-  --url <span class="s1">'https://example.booqable.dev/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/archive'</span>
+  --url <span class="s1">'https://example.booqable.com/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/archive'</span>
 </code></pre>
 <p>Archives an order</p>
 <h3 id='http-request-12'>HTTP Request</h3>
 <p><code>POST /orders/:id/archive</code></p>
 <h2 id='duplicate-an-order'>Duplicate an order</h2>
 <blockquote>
-<p>Example request </p>
+<p>Example request</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl --request POST <span class="se">\</span>
-  --url <span class="s1">'https://example.booqable.dev/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/duplicate'</span>
+  --url <span class="s1">'https://example.booqable.com/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/duplicate'</span>
 </code></pre>
 <blockquote>
 <p>This request returns JSON structured like this</p>
@@ -2033,10 +2033,10 @@ Canceling a reserved order will free all the products that were reserved with it
 <p><code>POST /orders/:id/duplicate</code></p>
 <h2 id='check-availability'>Check availability</h2>
 <blockquote>
-<p>Example request </p>
+<p>Example request</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl --request GET <span class="se">\</span>
-  --url <span class="s1">'https://example.booqable.dev/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/available'</span>
+  --url <span class="s1">'https://example.booqable.com/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/available'</span>
 </code></pre>
 <blockquote>
 <p>This request returns JSON structured like this</p>
@@ -2069,10 +2069,10 @@ Canceling a reserved order will free all the products that were reserved with it
 <p><code>GET /orders/:id/available</code></p>
 <h2 id='recalculate-prices'>Recalculate prices</h2>
 <blockquote>
-<p>Example request </p>
+<p>Example request</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl --request POST <span class="se">\</span>
-  --url <span class="s1">'https://company.booqable.dev/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/recalculate_prices'</span>
+  --url <span class="s1">'https://company.booqable.com/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/recalculate_prices'</span>
 </code></pre>
 <p>Recalculates the prices for the given order</p>
 <h3 id='http-request-15'>HTTP Request</h3>
@@ -2151,7 +2151,7 @@ Canceling a reserved order will free all the products that were reserved with it
 <p>Example request</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl --request DELETE <span class="se">\</span>
-  --url <span class="s1">'https://example.booqable.dev/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/plannings/b649dcc8-2c93-45bd-88f3-35e1a8be8356'</span>
+  --url <span class="s1">'https://example.booqable.com/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/plannings/b649dcc8-2c93-45bd-88f3-35e1a8be8356'</span>
 </code></pre>
 <p>Deletes a planning from an order.</p>
 <h3 id='http-request'>HTTP Request</h3>
@@ -2248,7 +2248,7 @@ Canceling a reserved order will free all the products that were reserved with it
 <p>Example request</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl --request POST <span class="se">\</span>
-  --url <span class="s1">'https://example.booqable.dev/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/lines'</span> <span class="se">\</span>
+  --url <span class="s1">'https://example.booqable.com/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/lines'</span> <span class="se">\</span>
   --header <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
   --data <span class="s1">'{
       "line": {
@@ -2259,7 +2259,7 @@ Canceling a reserved order will free all the products that were reserved with it
     }'</span>
 </code></pre>
 <blockquote>
-<p>This request returns JSON structured like this </p>
+<p>This request returns JSON structured like this</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"line"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -2339,7 +2339,7 @@ Canceling a reserved order will free all the products that were reserved with it
 <p>Example request</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl --request PATCH <span class="se">\</span>
-  --url <span class="s1">'https://example.booqable.dev/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/lines/83a3915a-80af-4c4f-ac77-35b1b2498964'</span> <span class="se">\</span>
+  --url <span class="s1">'https://example.booqable.com/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/lines/83a3915a-80af-4c4f-ac77-35b1b2498964'</span> <span class="se">\</span>
   --header <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
   --data <span class="s1">'{
       "line": {
@@ -2347,7 +2347,7 @@ Canceling a reserved order will free all the products that were reserved with it
       }
     }'</span>
 </code></pre><h3 id='http-request-2'>HTTP Request</h3>
-<p><code>PUT /orders/:order_id/lines/:id</code> or<br>
+<p><code>PUT /orders/:order_id/lines/:id</code> or
 <code>PATCH /orders/:order_id/lines/:id</code></p>
 
 <aside class="notice">
@@ -2358,7 +2358,7 @@ Canceling a reserved order will free all the products that were reserved with it
 <p>Example request</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl --request POST <span class="se">\</span>
-  --url <span class="s1">'https://company.booqable.dev/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/lines/update_positions?ids[]=24fdbdf2-290e-423d-864b-7214a3ae96b3&amp;ids[]=80879b22-5355-4902-88b2-b6c0f3e5dca5
+  --url <span class="s1">'https://company.booqable.com/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/lines/update_positions?ids[]=24fdbdf2-290e-423d-864b-7214a3ae96b3&amp;ids[]=80879b22-5355-4902-88b2-b6c0f3e5dca5
 </span></code></pre>
 <p>Updates the order of lines in an order.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
@@ -2382,7 +2382,7 @@ Canceling a reserved order will free all the products that were reserved with it
 <p>Example request</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl --request DELETE <span class="se">\</span>
-  --url <span class="s1">'https://example.booqable.dev/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/lines/83a3915a-80af-4c4f-ac77-35b1b2498964'</span>
+  --url <span class="s1">'https://example.booqable.com/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/lines/83a3915a-80af-4c4f-ac77-35b1b2498964'</span>
 </code></pre>
 <p>Delete specified line</p>
 <h3 id='http-request-4'>HTTP Request</h3>

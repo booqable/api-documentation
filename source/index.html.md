@@ -30,7 +30,7 @@ To make the Booqable API as explorable as possible, accounts have test-mode API 
 ## Creating an API key
 To interact with our API, first, you have to have a means of authentification, here's how to create a shiny new API key.
 
-1. Go to your account settings page   
+1. Go to your account settings page
 `{company-name-here}.booqable.com/account/edit`
 2. Name your new key
 3. Click "Create new key"
@@ -39,8 +39,8 @@ To interact with our API, first, you have to have a means of authentification, h
   You now have a <b>Booqable API key!</b>
 </aside>
 
-You can manage your API keys from your account.  
-You can have multiple API keys active at one time. 
+You can manage your API keys from your account.
+You can have multiple API keys active at one time.
 
 <aside class="warning">
   Your API keys carry many privileges, so be sure to keep them secret! <br>
@@ -64,15 +64,15 @@ The format is as follows:
 
 # Authentication
 
-> Example of an authorized request  
+> Example of an authorized request
 
 ```shell
 curl --request GET \
-  --url 'https://company.booqable.dev/api/1/customers?api_key=API_KEY_HERE'
+  --url 'https://company.booqable.com/api/1/customers?api_key=API_KEY_HERE'
 ```
 
-You authenticate to the Booqable API by providing on of your API keys in the request.  
-This can be done by appending `?api_key=API_KEY_HERE` to the end of your request URL.  
+You authenticate to the Booqable API by providing on of your API keys in the request.
+This can be done by appending `?api_key=API_KEY_HERE` to the end of your request URL.
 
 <aside class="notice">
   A request sent with a correct API key will recieve a session cookie in the response. You can use this cookie for further requests.

@@ -56,7 +56,7 @@
 }
 ```
 
-This resource contains all the information about an order, such as the period, customer and products booked on it.  
+This resource contains all the information about an order, such as the period, customer and products booked on it.
 It has the following attributes:
 
 | Field                     | Type     | Description                   |
@@ -88,7 +88,7 @@ When retrieving an order it will include more attributes:
 
 ```shell
 curl --request GET \
-  --url 'https://example.booqable.dev/api/1/orders'
+  --url 'https://example.booqable.com/api/1/orders'
 ```
 
 > This request returns JSON structured like this
@@ -149,8 +149,8 @@ This endpoint retrieves all orders and can paginated
 
 ### HTTP Request
 
-`GET /orders` or  
-`GET /orders?per=:per&page=:page` or  
+`GET /orders` or
+`GET /orders?per=:per&page=:page` or
 `GET /orders?q=:query`
 
 ### Query parameters
@@ -178,7 +178,7 @@ The meta object contains metadata about the complete collection (not affected by
 
 ```shell
 curl --request POST \
---url 'https://example.booqable.dev/api/1/orders' \
+--url 'https://example.booqable.com/api/1/orders' \
 --header 'content-type: application/json' \
 --data '
     {
@@ -221,7 +221,7 @@ Creates a new order with the provided details
 
 ```shell
 curl --request GET \
-  --url 'https://example.booqable.dev/api/1/orders/364a726b-419f-4156-ac29-71e2f1c6aefa'
+  --url 'https://example.booqable.com/api/1/orders/364a726b-419f-4156-ac29-71e2f1c6aefa'
 ```
 
 > This request returns JSON structured like this
@@ -241,7 +241,7 @@ This endpoint will retrieve a single order by id or number
 
 ### HTTP Request
 
-`GET /orders/:id` or  
+`GET /orders/:id` or
 `GET /orders/:number`
 
 ## Update order
@@ -256,11 +256,11 @@ This endpoint will retrieve a single order by id or number
 }
 ```
 
-> Example request 
+> Example request
 
 ```shell
 curl --request PATCH \
---url 'https://example.booqable.dev/api/1/orders/364a726b-419f-4156-ac29-71e2f1c6aefa' \
+--url 'https://example.booqable.com/api/1/orders/364a726b-419f-4156-ac29-71e2f1c6aefa' \
 --header 'content-type: application/json' \
 --data '{
     "order": {
@@ -271,7 +271,7 @@ curl --request PATCH \
 
 ### HTTP Request
 
-`PUT /orders/:id` or  
+`PUT /orders/:id` or
 `PATCH /orders/:id`
 
 <aside class="notice">
@@ -297,16 +297,16 @@ curl --request PATCH \
 }
 ```
 
-> Example request 
+> Example request
 
 ```shell
 curl --request POST \
-  --url 'https://example.booqable.dev/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/book'
+  --url 'https://example.booqable.com/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/book'
 ```
 
 > This request returns JSON structured like this
 
-Reserves given items for the duration of the order. 
+Reserves given items for the duration of the order.
 
 Bulk items can be booked with just a item group id and quantity, but trackable items offer the choice between just providing an item group id and quantity and then providing the specific item ids when starting the items or providing the item group ids as well as the item ids right away to reserve specific inventory items. You can also mix the two methods for the same item.
 
@@ -314,13 +314,13 @@ Bulk items can be booked with just a item group id and quantity, but trackable i
 
 `POST /orders/:id/book`
 
-## Save an order as a concept 
+## Save an order as a concept
 
-> Example request 
+> Example request
 
 ```shell
 curl --request POST \
-  --url 'https://example.booqable.dev/api/1/orders/364a726b-419f-4156-ac29-71e2f1c6aefa/concept'
+  --url 'https://example.booqable.com/api/1/orders/364a726b-419f-4156-ac29-71e2f1c6aefa/concept'
 ```
 
 > This request returns JSON structured like this
@@ -344,11 +344,11 @@ A newly created order is by default <code>new</code> and unlisted. To make it vi
 
 ## Reserve an order
 
-> Example request 
+> Example request
 
 ```shell
 curl --request POST \
-  --url 'https://company.booqable.dev/api/1/orders/364a726b-419f-4156-ac29-71e2f1c6aefa/reserve'
+  --url 'https://company.booqable.com/api/1/orders/364a726b-419f-4156-ac29-71e2f1c6aefa/reserve'
 ```
 
 > This request returns JSON structured like this
@@ -380,7 +380,7 @@ curl --request POST \
 }
 ```
 
-Reserves an order and books all the products in it. This action is only allowed when the order status is either <code>new</code> or <code>concept</code>  
+Reserves an order and books all the products in it. This action is only allowed when the order status is either <code>new</code> or <code>concept</code>
 
 If 1 or more products aren't available in the necessary quantity to fulfill the order a <code>items_not_available</code> error will be raised.
 
@@ -408,11 +408,11 @@ If 1 or more products aren't available in the necessary quantity to fulfill the 
 }
 ```
 
-> Example request 
+> Example request
 
 ```shell
 curl --request POST \
-  --url 'https://example.booqable.dev/api/1/orders/364a726b-419f-4156-ac29-71e2f1c6aefa/start' \
+  --url 'https://example.booqable.com/api/1/orders/364a726b-419f-4156-ac29-71e2f1c6aefa/start' \
   --header 'content-type: application/json' \
   --data '{
 	"ids": {
@@ -442,7 +442,7 @@ curl --request POST \
 }
 ```
 
-To start the oder we need to let the API know which products are being started and in what quantities.  
+To start the oder we need to let the API know which products are being started and in what quantities.
 We can do this by sending the `ids` parameter.
 The API expects a product group id and the quantity for bulk products, but for trackable products it expects both a product group id as well as the product ids of each item being started.
 
@@ -476,11 +476,11 @@ The API expects a product group id and the quantity for bulk products, but for t
 }
 ```
 
-> Example request 
+> Example request
 
 ```shell
 curl --request POST \
-  --url 'https://example.booqable.dev/api/1/orders/364a726b-419f-4156-ac29-71e2f1c6aefa/stop' \
+  --url 'https://example.booqable.com/api/1/orders/364a726b-419f-4156-ac29-71e2f1c6aefa/stop' \
   --header 'content-type: application/json' \
   --data '{
   "ids": {
@@ -510,7 +510,7 @@ curl --request POST \
 }
 ```
 
-To stop the oder we need to let the API know which products are being stopped and in what quantities.  
+To stop the oder we need to let the API know which products are being stopped and in what quantities.
 We can do this by sending the `ids` parameter.
 The API expects a product group id and the quantity for bulk products, but for trackable products it expects both a product group id as well as the product ids of each item being stopped.
 
@@ -520,11 +520,11 @@ The API expects a product group id and the quantity for bulk products, but for t
 
 ## Cancel order
 
-> Example request 
+> Example request
 
 ```shell
 curl --request POST \
-  --url https://example.booqable.dev/api/1/orders/364a726b-419f-4156-ac29-71e2f1c6aefa/cancel \
+  --url https://example.booqable.com/api/1/orders/364a726b-419f-4156-ac29-71e2f1c6aefa/cancel \
 ```
 
 > This request returns JSON structured like this
@@ -544,7 +544,7 @@ curl --request POST \
 }
 ```
 
-Cancels an order, can only be called on orders with any of these statues: `new`, `concept`, `reserved`.  
+Cancels an order, can only be called on orders with any of these statues: `new`, `concept`, `reserved`.
 Canceling a reserved order will free all the products that were reserved with it and cancel all plannings.
 
 ### HTTP Request
@@ -553,11 +553,11 @@ Canceling a reserved order will free all the products that were reserved with it
 
 ## Revert order to a given status
 
-> Example request 
+> Example request
 
 ```shell
 curl --request POST \
-  --url 'https://example.booqable.dev/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/revert?status=concept'
+  --url 'https://example.booqable.com/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/revert?status=concept'
 ```
 
 > This request returns JSON structured like this
@@ -593,11 +593,11 @@ What status an order can be reverted to depends on it's current status:
 
 ## Archive an order
 
-> Example request 
+> Example request
 
 ```shell
 curl --request POST \
-  --url 'https://example.booqable.dev/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/archive'
+  --url 'https://example.booqable.com/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/archive'
 ```
 
 Archives an order
@@ -608,11 +608,11 @@ Archives an order
 
 ## Duplicate an order
 
-> Example request 
+> Example request
 
 ```shell
 curl --request POST \
-  --url 'https://example.booqable.dev/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/duplicate'
+  --url 'https://example.booqable.com/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/duplicate'
 ```
 
 > This request returns JSON structured like this
@@ -636,11 +636,11 @@ Duplicates an existing order to create a new order
 
 ## Check availability
 
-> Example request 
+> Example request
 
 ```shell
 curl --request GET \
-  --url 'https://example.booqable.dev/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/available'
+  --url 'https://example.booqable.com/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/available'
 ```
 
 > This request returns JSON structured like this
@@ -676,13 +676,13 @@ Gets all the available products for the duration of the given order.
 
 `GET /orders/:id/available`
 
-## Recalculate prices 
+## Recalculate prices
 
-> Example request 
+> Example request
 
 ```shell
 curl --request POST \
-  --url 'https://company.booqable.dev/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/recalculate_prices'
+  --url 'https://company.booqable.com/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/recalculate_prices'
 ```
 
 Recalculates the prices for the given order

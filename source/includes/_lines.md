@@ -36,7 +36,7 @@ When retrieving a specific line it will also include the associated order and ta
 
 ```shell
 curl --request POST \
-  --url 'https://example.booqable.dev/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/lines' \
+  --url 'https://example.booqable.com/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/lines' \
   --header 'content-type: application/json' \
   --data '{
       "line": {
@@ -47,7 +47,7 @@ curl --request POST \
     }'
 ```
 
-> This request returns JSON structured like this 
+> This request returns JSON structured like this
 
 ```json
 {
@@ -134,7 +134,7 @@ Creates a new line in an order with the provided details.
 
 ```shell
 curl --request PATCH \
-  --url 'https://example.booqable.dev/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/lines/83a3915a-80af-4c4f-ac77-35b1b2498964' \
+  --url 'https://example.booqable.com/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/lines/83a3915a-80af-4c4f-ac77-35b1b2498964' \
   --header 'content-type: application/json' \
   --data '{
       "line": {
@@ -145,7 +145,7 @@ curl --request PATCH \
 
 ### HTTP Request
 
-`PUT /orders/:order_id/lines/:id` or   
+`PUT /orders/:order_id/lines/:id` or
 `PATCH /orders/:order_id/lines/:id`
 
 <aside class="notice">
@@ -158,7 +158,7 @@ curl --request PATCH \
 
 ```shell
 curl --request POST \
-  --url 'https://company.booqable.dev/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/lines/update_positions?ids[]=24fdbdf2-290e-423d-864b-7214a3ae96b3&ids[]=80879b22-5355-4902-88b2-b6c0f3e5dca5
+  --url 'https://company.booqable.com/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/lines/update_positions?ids[]=24fdbdf2-290e-423d-864b-7214a3ae96b3&ids[]=80879b22-5355-4902-88b2-b6c0f3e5dca5
 ```
 
 Updates the order of lines in an order.
@@ -184,7 +184,7 @@ Required in **bold**
 
 ```shell
 curl --request DELETE \
-  --url 'https://example.booqable.dev/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/lines/83a3915a-80af-4c4f-ac77-35b1b2498964'
+  --url 'https://example.booqable.com/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/lines/83a3915a-80af-4c4f-ac77-35b1b2498964'
 ```
 Delete specified line
 

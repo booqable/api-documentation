@@ -21,7 +21,7 @@
 
 ```shell
 curl --request DELETE \
-  --url 'https://example.booqable.dev/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/plannings/b649dcc8-2c93-45bd-88f3-35e1a8be8356'
+  --url 'https://example.booqable.com/api/1/orders/ea024c26-c322-485b-85ad-f67b890e5346/plannings/b649dcc8-2c93-45bd-88f3-35e1a8be8356'
 ```
 
 Deletes a planning from an order.

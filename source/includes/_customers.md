@@ -1,6 +1,6 @@
 # Customers
 
-> Example of a customer 
+> Example of a customer
 
 ```json
 {
@@ -118,7 +118,7 @@ This endpoint retrieves all customers and can paginated
 
 ### HTTP Request
 
-`GET /customers` or  
+`GET /customers` or
 `GET /customers?page=:page&per=:per`
 
 ### Query parameters
@@ -166,7 +166,7 @@ The `meta` object contains metadata about the complete collection (not affected 
 
 ```shell
 curl --request POST \
-  --url 'https://example.booqable.dev/api/1/customers' \
+  --url 'https://example.booqable.com/api/1/customers' \
   --header 'content-type: application/json' \
   --data '{
 	"customer": {
@@ -218,14 +218,14 @@ Creates a new customer with the provided properties
 
 ```shell
 curl --request GET \
-  --url 'https://example.booqable.dev/api/1/customers/b496c71d-2211-4e27-bf80-3058e5294358'
+  --url 'https://example.booqable.com/api/1/customers/b496c71d-2211-4e27-bf80-3058e5294358'
 ```
 
 > Get a customer using their number
 
 ```shell
 curl --request GET \
-  --url 'https://example.booqable.dev/api/1/customers/1'
+  --url 'https://example.booqable.com/api/1/customers/1'
 ```
 
 > This request returns JSON structured like this
@@ -245,7 +245,7 @@ This endpoint will retrieve a single customer by id or number
 
 ### HTTP Request
 
-`GET /customers/:id` or  
+`GET /customers/:id` or
 `GET /customers/:number`
 
 ## Update customer
@@ -288,7 +288,7 @@ curl --request PATCH \
 Update the details of a customer
 
 ### HTTP Request
-`PUT /customers/:id/update` or  
+`PUT /customers/:id/update` or
 `PATCH /customer/:id/update`
 
 <aside class="notice">
@@ -301,7 +301,7 @@ Update the details of a customer
 
 ```shell
 curl --request DELETE \
-  --url 'https://example.booqable.dev/api/1/customers/b496c71d-2211-4e27-bf80-3058e5294358/archive'
+  --url 'https://example.booqable.com/api/1/customers/b496c71d-2211-4e27-bf80-3058e5294358/archive'
 ```
 
 > This request returns JSON structured like this
@@ -329,7 +329,7 @@ Archives a customer hiding it from searches, getting this customer by id will st
 
 ```shell
 curl --request POST \
-  --url 'https://example.booqable.dev/api/1/customers/b496c71d-2211-4e27-bf80-3058e5294358/restore'
+  --url 'https://example.booqable.com/api/1/customers/b496c71d-2211-4e27-bf80-3058e5294358/restore'
 ```
 
 > This request returns JSON structured like this

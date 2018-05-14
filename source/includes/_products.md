@@ -50,7 +50,7 @@
 }
 ```
 
-Product groups define the kind of products that are available but not individual stock items.  
+Product groups define the kind of products that are available but not individual stock items.
 A product will always belong to a product group.
 
 
@@ -82,7 +82,7 @@ Required in **bold**
 
 ```shell
 curl --request GET \
-  --url 'https://example.booqable.dev/api/1/product_groups'
+  --url 'https://example.booqable.com/api/1/product_groups'
 ```
 
 > This request returns JSON structured like this
@@ -145,7 +145,7 @@ This endpoint retrieves all product groups and can paginated
 
 ### HTTP Request
 
-`GET /product_groups` or  
+`GET /product_groups` or
 `GET /product_groups?per=:per&page=:page`
 
 ### Query parameters
@@ -185,7 +185,7 @@ The meta object contains metadata about the complete collection (not affected by
 
 ```shell
 curl --request POST \
-  --url 'https://example.booqable.dev/api/1/product_groups' \
+  --url 'https://example.booqable.com/api/1/product_groups' \
   --header 'content-type: application/json' \
   --data '{
 	"product_group": {
@@ -242,7 +242,7 @@ Creates a new product group with the provided properties
 
 ```shell
 curl --request GET \
-  --url 'https://example.booqable.dev/api/1/product_groups/6107b3cc-03a8-4935-906c-20e2c33db7e0'
+  --url 'https://example.booqable.com/api/1/product_groups/6107b3cc-03a8-4935-906c-20e2c33db7e0'
 ```
 
 > This request returns JSON structured like this
@@ -307,7 +307,7 @@ This endpoint will retrieve a single product group by id
 
 ```shell
 curl --request PATCH \
-  --url 'https://example.booqable.dev/api/1/product_groups/6107b3cc-03a8-4935-906c-20e2c33db7e0' \
+  --url 'https://example.booqable.com/api/1/product_groups/6107b3cc-03a8-4935-906c-20e2c33db7e0' \
   --header 'content-type: application/json' \
   --cookie 'request_method=GET; _rental_api_session=NFBoY2IxclJiQTBjdzZ4aWkxUmFUNzNZYjlXckJPbU9sUUh2OTVlS2c4NElRMW4wRGFMYlE5Mnozam9JMm9GSUhlVU9HYjNudFJJS3NhSzNGUDdaYVQzZk5tWjVwUmdQRXlvaGZXVDRXb2hmYWVIZ0t1eVYyaU54b0w3bXJ5Tm9mK0lseWhSOTZ0L28yU1pkOUYrbVdWUW5nbDNHQlU3K0d1RHdPdVJqbGdRZERwWVhsTGYyNlpsSHlxclBVck5zeVp1NXJ0N0g5eHNtaFljeDh1ekp4MWxYd3QxZTlKM2xXMFUxRkx5N1NRTkVVQjB0RnduaGFzOTNlSmJQYkYzcVdxMmRWWFVpbCsrSldxcEY4ZWJPaWM0VjRpQnZVMisyQTlEWVhjc3kxQ0Q5N1R5SFF6eSs1R2lDdjBzVDduNVJ4ejJ1eWJ5STFFdzVNWTBrQTJvSW02c3ZralRockQ0bWRUZ3RQdXBHMVdJPS0tNVhVTXY1RGthZEYxSXBBOEtmN0tiZz09--620dd5ead23e2e80caa59daed438a2e1f502797c' \
   --data '{
@@ -321,7 +321,7 @@ Update the properties of a product group
 
 ### HTTP Request
 
-`PUT /product_groups/:id` or  
+`PUT /product_groups/:id` or
 `PATH /product_groups/:id`
 
 <aside class="notice">
@@ -334,7 +334,7 @@ Update the properties of a product group
 
 ```shell
 curl --request DELETE \
-  --url 'https://example.booqable.dev/api/1/product_groups/6107b3cc-03a8-4935-906c-20e2c33db7e0/archive'
+  --url 'https://example.booqable.com/api/1/product_groups/6107b3cc-03a8-4935-906c-20e2c33db7e0/archive'
 ```
 
 Archives a product group
@@ -349,7 +349,7 @@ Archives a product group
 
 ```shell
 curl --request POST \
-  --url 'https://company.booqable.dev/api/1/product_groups/6107b3cc-03a8-4935-906c-20e2c33db7e0/restore'
+  --url 'https://company.booqable.com/api/1/product_groups/6107b3cc-03a8-4935-906c-20e2c33db7e0/restore'
 ```
 
 ### HTTP Request
@@ -362,7 +362,7 @@ curl --request POST \
 
 ```shell
 curl --request GET \
-  --url 'https://company.booqable.dev/api/1/products/23b6445d-c846-404b-8628-acb9023d8e5c/availability?interval=month&till=01-02-2018&from=01-01-2018
+  --url 'https://company.booqable.com/api/1/products/23b6445d-c846-404b-8628-acb9023d8e5c/availability?interval=month&till=01-02-2018&from=01-01-2018
 ```
 
 > This request returns JSON structured like this
@@ -408,7 +408,7 @@ Provides an availability overview of the specified product in the provided timef
 
 ### HTTP Request
 
-`GET /products/:product_id/availablility/?from=:from&till=:till` or  
+`GET /products/:product_id/availablility/?from=:from&till=:till` or
 `GET /products/:product_id/availablility/?from=:from&till=:till&interval=:interval`
 
 ### Query parameters
@@ -429,7 +429,7 @@ Required in **bold**
 
 ```shell
 curl --request GET \
-  --url 'https://example.booqable.dev/api/1/products/c560ea83-5231-4052-831e-c26db0121c1b/prices'
+  --url 'https://example.booqable.com/api/1/products/c560ea83-5231-4052-831e-c26db0121c1b/prices'
 ```
 
 > This request returns JSON structured like this

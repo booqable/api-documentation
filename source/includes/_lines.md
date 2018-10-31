@@ -190,4 +190,4 @@ Delete specified line
 
 ### HTTP Request
 
-`DESTROY /orders/:order_id/lines/:id`
+`DELETE /orders/:order_id/lines/:id`

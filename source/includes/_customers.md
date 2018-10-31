@@ -147,7 +147,7 @@ The `meta` object contains metadata about the complete collection (not affected 
 		"name": "Jack Doe",
 		"email": "jack@doe.com",
 		"phone": "1598580108",
-		"properties": [
+		"properties_attributes": [
 			{
 				"type": "Property::Address",
         "name": "Main",
@@ -173,7 +173,7 @@ curl --request POST \
 		"name": "Jane Doe",
 		"email": "jane@doe.com",
 		"tax_region_id": 1,
-		"properties": [
+		"properties_attributes": [
 			{
 				"type": "Property::Address",
         "name": "Main",
@@ -288,8 +288,8 @@ curl --request PATCH \
 Update the details of a customer
 
 ### HTTP Request
-`PUT /customers/:id/update` or
-`PATCH /customer/:id/update`
+`PUT /customers/:id` or
+`PATCH /customer/:id`
 
 <aside class="notice">
 	Sending a <code>PUT</code> request will return the resource with any changes that were made, but sending a <code>PATCH</code> request will always return a <code>204 NO CONTENT</code>

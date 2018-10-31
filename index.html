@@ -370,8 +370,6 @@
         <h1 id='introduction'>Introduction</h1>
 <p>The Booqable API is a RESTful API and as such is designed to have predictable, resource-oriented URLs and to use HTTP response codes to indicate API errors. We use standard HTTP features, like HTTP authentication and HTTP verbs, which can be understood by off-the-shelf HTTP clients, and we support cross-origin resource sharing to allow you to interact securely with our API from a client-side web application.</p>
 
-<p>To make the Booqable API as explorable as possible, accounts have test-mode API keys as well as live-mode API keys. These keys can be active at the same time.</p>
-
 <aside class="warning">
   <b>WARNING:</b> Booqable's API is still in Beta we might introduce non-backwards compatible changes in the future!
 </aside>
@@ -640,7 +638,7 @@ This can be done by appending <code>?api_key=API_KEY_HERE</code> to the end of y
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jack Doe"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jack@doe.com"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1598580108"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"properties_attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Property::Address"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Main"</span><span class="p">,</span><span class="w">
@@ -665,7 +663,7 @@ This can be done by appending <code>?api_key=API_KEY_HERE</code> to the end of y
         "name": "Jane Doe",
         "email": "jane@doe.com",
         "tax_region_id": 1,
-        "properties": [
+        "properties_attributes": [
             {
                 "type": "Property::Address",
         "name": "Main",
@@ -761,8 +759,8 @@ This can be done by appending <code>?api_key=API_KEY_HERE</code> to the end of y
 </span></code></pre>
 <p>Update the details of a customer</p>
 <h3 id='http-request-4'>HTTP Request</h3>
-<p><code>PUT /customers/:id/update</code> or
-<code>PATCH /customer/:id/update</code></p>
+<p><code>PUT /customers/:id</code> or
+<code>PATCH /customer/:id</code></p>
 
 <aside class="notice">
     Sending a <code>PUT</code> request will return the resource with any changes that were made, but sending a <code>PATCH</code> request will always return a <code>204 NO CONTENT</code>
@@ -2386,7 +2384,7 @@ Canceling a reserved order will free all the products that were reserved with it
 </code></pre>
 <p>Delete specified line</p>
 <h3 id='http-request-4'>HTTP Request</h3>
-<p><code>DESTROY /orders/:order_id/lines/:id</code></p>
+<p><code>DELETE /orders/:order_id/lines/:id</code></p>
 
       </div>
       <div class="dark-box">

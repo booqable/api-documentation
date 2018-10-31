@@ -21,8 +21,6 @@ search: true
 
 The Booqable API is a RESTful API and as such is designed to have predictable, resource-oriented URLs and to use HTTP response codes to indicate API errors. We use standard HTTP features, like HTTP authentication and HTTP verbs, which can be understood by off-the-shelf HTTP clients, and we support cross-origin resource sharing to allow you to interact securely with our API from a client-side web application.
 
-To make the Booqable API as explorable as possible, accounts have test-mode API keys as well as live-mode API keys. These keys can be active at the same time.
-
 <aside class="warning">
   <b>WARNING:</b> Booqable's API is still in Beta we might introduce non-backwards compatible changes in the future!
 </aside>

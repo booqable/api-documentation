@@ -285,11 +285,11 @@ curl --request PATCH \
 ```json
 {
 	"ids": {
-		// Book a bulk product by providing an Item Group ID and quantity
+		// Book a bulk product by providing a product ID and quantity
 		"23b6445d-c846-404b-8628-acb9023d8e5cc": 2,
-		// Book a trackable product by providing an Item Group ID and quantity
+		// Book a trackable product by providing a producct ID and quantity
 		"cdda5942-19d1-4bc8-ac1b-0324a14ba6d5": 1,
-		// Book a trackable product by providing an Item Group ID and an array of Item IDs
+		// Book a trackable product by providing a product ID and an array of StockItem IDs
 		"cdda5942-19d1-4bc8-ac1b-0324a14ba6d5": [
 			"a098b498-6f9f-4552-9a24-ec4614260e2e"
 		]
@@ -394,17 +394,17 @@ If 1 or more products aren't available in the necessary quantity to fulfill the 
 
 ```json
 {
-	"ids": {
-        // Bulk products just need the product group ID and quantity
-        // bulk_product_group_id: quantity
-		"23b6445d-c846-404b-8628-acb9023d8e5cc": 2,
-        // Trackable products need both the group and individual product ids
-        // trackable_product_group_id: [ trackable_product_id_1, trackable_product_id_2 ]
-		"cdda5942-19d1-4bc8-ac1b-0324a14ba6d5": [
-			"1953296d-98ea-4f08-b27e-0b7d6d9379df",
-			"a098b498-6f9f-4552-9a24-ec4614260e2e"
-		]
-	}
+  "ids": {
+    // Bulk products just need the product ID and quantity
+    // bulk_product_id: quantity
+    "23b6445d-c846-404b-8628-acb9023d8e5cc": 2,
+    // Trackable products need both the product and individual stock item ids
+    // trackable_product_id: [ stock_item_id_1, stock_item_id_2 ]
+    "cdda5942-19d1-4bc8-ac1b-0324a14ba6d5": [
+      "1953296d-98ea-4f08-b27e-0b7d6d9379df",
+      "a098b498-6f9f-4552-9a24-ec4614260e2e"
+    ]
+  }
 }
 ```
 
@@ -463,11 +463,11 @@ The API expects a product group id and the quantity for bulk products, but for t
 ```json
 {
   "ids": {
-    // Bulk products just need the product group ID and quantity
-    // bulk_product_group_id: quantity
+    // Bulk products just need the product ID and quantity
+    // bulk_product_id: quantity
     "23b6445d-c846-404b-8628-acb9023d8e5cc": 2,
-    // Trackable products need both the group and individual product ids
-    // trackable_product_group_id: [ trackable_product_id_1, trackable_product_id_2 ]
+    // Trackable products need both the product and individual stock item ids
+    // trackable_product_id: [ stock_item_id_1, stock_item_id_2 ]
     "cdda5942-19d1-4bc8-ac1b-0324a14ba6d5": [
       "1953296d-98ea-4f08-b27e-0b7d6d9379df",
       "a098b498-6f9f-4552-9a24-ec4614260e2e"

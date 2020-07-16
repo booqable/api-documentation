@@ -1,3 +1,5 @@
+[Booqable](https://booqable.com/) Rental software for small teams - [We're hiring!](https://booqable.com/careers/)
+
 # Booqable API Documentation
 
 This repository contains the source for the Booqable API documentation

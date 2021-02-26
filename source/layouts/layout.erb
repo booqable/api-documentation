@@ -31,8 +31,15 @@ under the License.
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title><%= current_page.data.title || "API Documentation" %></title>
 
-    <style>
-      <%= Rouge::Themes::MonokaiSublime.render(:scope => '.highlight') %>
+    <link rel="stylesheet" href="https://use.typekit.net/slm5iks.css">
+    <style media="screen">
+      <%= Rouge::Themes::Molokai.render(:scope => '.highlight') %>
+    </style>
+    <style media="print">
+      * {
+        transition:none!important;
+      }
+      <%= Rouge::Themes::Base16::Solarized.render(:scope => '.highlight') %>
     </style>
     <%= stylesheet_link_tag :screen, media: :screen %>
     <%= stylesheet_link_tag :print, media: :print %>
@@ -40,6 +47,12 @@ under the License.
       <%= javascript_include_tag  "all" %>
     <% else %>
       <%= javascript_include_tag  "all_nosearch" %>
+    <% end %>
+
+    <% if current_page.data.code_clipboard %>
+    <script>
+      $(function() { setupCodeCopy(); });
+    </script>
     <% end %>
   </head>
 
@@ -51,7 +64,7 @@ under the License.
       </span>
     </a>
     <div class="toc-wrapper">
-      <%= image_tag "logo.svg", class: 'logo' %>
+      <%= image_tag 'logo.png', class: 'logo' %>
       <% if language_tabs.any? %>
         <div class="lang-selector">
           <% language_tabs.each do |lang| %>
@@ -69,22 +82,22 @@ under the License.
         </div>
         <ul class="search-results"></ul>
       <% end %>
-      <div id="toc" class="toc-list-h1">
+      <ul id="toc" class="toc-list-h1">
         <% toc_data(page_content).each do |h1| %>
           <li>
-            <a href="#<%= h1[:id] %>" class="toc-h1 toc-link" data-title="<%= h1[:content] %>"><%= h1[:content] %></a>
+            <a href="#<%= h1[:id] %>" class="toc-h1 toc-link" data-title="<%= h1[:title] %>"><%= h1[:content] %></a>
             <% if h1[:children].length > 0 %>
               <ul class="toc-list-h2">
                 <% h1[:children].each do |h2| %>
                   <li>
-                    <a href="#<%= h2[:id] %>" class="toc-h2 toc-link" data-title="<%= h2[:content] %>"><%= h2[:content] %></a>
+                    <a href="#<%= h2[:id] %>" class="toc-h2 toc-link" data-title="<%= h2[:title] %>"><%= h2[:content] %></a>
                   </li>
                 <% end %>
               </ul>
             <% end %>
           </li>
         <% end %>
-      </div>
+      </ul>
       <% if current_page.data.toc_footers %>
         <ul class="toc-footer">
           <% current_page.data.toc_footers.each do |footer| %>

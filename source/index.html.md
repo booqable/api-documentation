@@ -4,8 +4,8 @@ title: Booqable API
 language_tabs: # must be one of https://git.io/vQNgJ
 #  - shell
 
-toc_footers:
-  - <a href='https://github.com/booqable/api-documentation'>Documentation on GitHub</a>
+# toc_footers:
+#   - <a href='https://github.com/booqable/api-documentation'>Documentation on GitHub</a>
 
 includes:
   - customers
@@ -14,7 +14,7 @@ includes:
   - planning
   - lines
 
-search: true
+search: false
 ---
 
 # Introduction

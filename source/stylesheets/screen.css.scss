@@ -25,13 +25,17 @@ under the License.
 ////////////////////////////////////////////////////////////////////////////////
 
 .toc-h1 {
-  font-size: 18px !important;
+  font-size: 16px !important;
   font-weight: 400;
   padding: 7px 30px !important;
+
+  &.toc-header {
+    font-weight: 600;
+  }
 }
 
 .toc-h2 {
-  font-size: 15px !important;
+  font-size: 14px !important;
   font-weight: 400;
   padding: 7px 30px 5px 40px !important;
 }
@@ -65,9 +69,13 @@ html, body {
 
 #toc > ul > li > a > span {
   float: right;
-  background-color: #2484FF;
+  background-color: #000;
   border-radius: 40px;
   width: 20px;
+}
+
+ul#toc {
+  padding-bottom: 50px;
 }
 
 .toc-wrapper {
@@ -108,22 +116,31 @@ html, body {
 
     input {
       background: $nav-bg;
-      border-width: 0 0 1px 0;
-      border-color: $search-box-border-color;
-      padding: 6px 0 6px 20px;
+      border: 1px solid $search-box-border-color;
+      padding: 8px 0 8px 30px;
       box-sizing: border-box;
       margin: $nav-v-padding $nav-padding;
-      width: $nav-width - ($nav-padding*2);
+      margin-left: ($nav-padding/2);
+      width: $nav-width - ($nav-padding);
       outline: none;
       color: $nav-text;
-      border-radius: 0; /* ios has a default border radius */
+      border-radius: 25px; /* ios has a default border radius */
+
+      &::placeholder {
+        color: #BBC0C1;
+      }
+
+      &:focus {
+        background: #fff;
+        border-color: #000;
+      }
     }
 
     &:before {
       position: absolute;
-      top: 17px;
-      left: $nav-padding;
-      color: $nav-text;
+      top: 20px;
+      left: 30px;
+      color: #BBC0C1;
       @extend %icon-search;
     }
   }
@@ -138,6 +155,8 @@ html, body {
     transition-duration: 180ms;
     transition-timing-function: ease-in-out;
     background: $nav-subitem-bg;
+    box-shadow: inset 0px 11px 8px -10px $aside-notice-bg, inset 0px -11px 8px -10px $aside-notice-bg;
+
     &.visible {
       height: 30%;
       margin-bottom: 1em;
@@ -176,10 +195,27 @@ html, body {
     transition-duration: 200ms;
   }
 
+  span.beta {
+    background: #000;
+    color: #fff;
+    font-size: 8px;
+    height: 8px;
+    line-height: 8px;
+    padding: 3px 5px;
+    border-radius: 5px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
   // This is the currently selected ToC entry
   .toc-link.active {
     background-color: $nav-active-bg;
     color: $nav-active-text;
+
+    span.beta {
+      background: #fff;
+      color: #000;
+    }
   }
 
   // this is parent links of the currently selected ToC entry
@@ -346,6 +382,14 @@ html, body {
   position: relative;
   z-index: 30;
 
+  a {
+    color: #000;
+
+    &:hover {
+
+    }
+  }
+
   &:after {
     content: '';
     display: block;
@@ -378,11 +422,24 @@ html, body {
     margin-top: 2em;
     font-weight: 500;
     border-top: 1px solid #e9edf5;
+    text-transform: 'capitalize';
   }
 
   h1:first-child, div:first-child + h1 {
     border-top-width: 0;
     margin-top: 0;
+  }
+
+  span.beta {
+    background: #000;
+    color: #fff;
+    font-size: 10px;
+    height: 10px;
+    line-height: 10px;
+    padding: 3px 5px;
+    border-radius: 5px;
+    display: inline-block;
+    vertical-align: middle;
   }
 
   h2 {
@@ -409,10 +466,6 @@ html, body {
     margin-bottom: 0.8em;
   }
 
-  h4, h5, h6 {
-    font-size: 10px;
-  }
-
   p {
     font-size: 15px;
   }
@@ -425,8 +478,31 @@ html, body {
 
   table {
     padding-top: 1em;
-    margin-bottom: 1em;
     overflow: auto;
+    table-layout: auto  ;
+    overflow-wrap: break-word;
+    display: table;
+    width: calc(50% - 52px);
+    padding: 0;
+    margin: 0 $main-padding;
+    margin-bottom: 1em;
+
+    td:first-child {
+      width: 100px;
+    }
+
+    td {
+      padding: 10px;
+      border-bottom: 1px solid lighten(#e9edf5, 2%);
+    }
+
+    td:first-child {
+      border-left: 1px solid #e9edf5;
+    }
+
+    td:last-child {
+      border-right: 1px solid #e9edf5;
+    }
 
     th,td {
       text-align: left;
@@ -438,18 +514,19 @@ html, body {
     }
 
     th {
-      padding: 5px 10px;
+      padding: 8px 10px;
       border-bottom: 1px solid #e9edf5;
       vertical-align: bottom;
-    }
+      background: lighten(#000, 90%);
 
-    td {
-      padding: 10px;
-    }
+      &:first-child {
+        border-top-left-radius: 8px;
+      }
 
-    // tr:last-child {
-    //   border-bottom: 1px solid #e9edf5;
-    // }
+      &:last-child {
+        border-top-right-radius: 8px;
+      }
+    }
 
     tr:nth-child(odd)>td {
       background-color: lighten($main-bg,4.2%);

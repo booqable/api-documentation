@@ -28,17 +28,17 @@ $examples-bg: #2a2d32 !default;
 $code-bg: #222429 !default;
 $code-annotation-bg: #191D1F !default;
 $nav-subitem-bg: #fefeff !default;
-$nav-active-bg: #007bff !default;
+$nav-active-bg: #000 !default;
 $nav-active-parent-bg: #fefeff !default; // parent links of the current section
 $lang-select-border: #000 !default;
 $lang-select-bg: #1E2224 !default;
 $lang-select-active-bg: $examples-bg !default; // feel free to change this to blue or something
 $lang-select-pressed-bg: #111 !default; // color of language tab bg when mouse is pressed
 $main-bg: #fff !default;
-$aside-notice-bg: lighten(#007bff, 30%) !default;
-$aside-warning-bg: lighten(#FF7632, 30%) !default;
-$aside-success-bg: lighten(#74CC20, 30%) !default;
-$search-notice-bg: lighten(#FF7632, 30%) !default;
+$aside-notice-bg: lighten(#000, 90%) !default;
+$aside-warning-bg: lighten(#FF7632, 35%) !default;
+$aside-success-bg: lighten(#74CC20, 40%) !default;
+$search-notice-bg: lighten(#FF7632, 35%) !default;
 
 
 // TEXT COLORS
@@ -89,7 +89,7 @@ $phone-width: $tablet-width - $nav-width !default; // min width before reverting
 // OTHER
 ////////////////////
 $nav-footer-border-color: #666 !default;
-$search-box-border-color: #666 !default;
+$search-box-border-color: #e2e6eb !default;
 
 
 ////////////////////////////////////////////////////////////////////////////////

@@ -14,7 +14,6 @@
 		"number": 7,
 		"name": "Jane Doe",
 		"email": "jane@doe.com",
-		"phone": "string?",
 		"tax_region_id": null,
 		"discount_percentage": 0.0,
 		"deposit_type": null,
@@ -66,7 +65,6 @@ The Customer object holds all information about a customer. The customer resourc
 | number        | Integer  | `Unique` The customer's number                |
 | **name**      | String   | The name of the customer                      |
 | email         | String   | E-mail address of the customer                |
-| phone         | String   | Customers phone number                        |
 | avatar_url    | String   | `Readonly` The avatar url                     |
 | tax_region_id | Integer  | The associated tax region.                    |
 | orders        | Array    | The customer's orders (?)                     |
@@ -146,7 +144,6 @@ The `meta` object contains metadata about the complete collection (not affected 
 	"customer": {
 		"name": "Jack Doe",
 		"email": "jack@doe.com",
-		"phone": "1598580108",
 		"properties_attributes": [
 			{
 				"type": "Property::Address",
@@ -156,7 +153,12 @@ The `meta` object contains metadata about the complete collection (not affected 
         "zipcode": "8937AH",
         "city": "Leeuwarden",
         "country": "Netherlands"
-			}
+			},
+      {
+        "type": "Property::Phone",
+        "name": "Phone",
+        "value": "+315812345678"
+      }
 		]
 	}
 }
@@ -182,7 +184,12 @@ curl --request POST \
         "zipcode": "8937AH",
         "city": "Leeuwarden",
         "country": "Netherlands"
-			}
+			},
+      {
+        "type": "Property::Phone",
+        "name": "Phone",
+        "value": "+315812345678"
+      }
 		]
 	}
 }'
@@ -255,7 +262,14 @@ This endpoint will retrieve a single customer by id or number
 ```json
 {
 	"customer": {
-		"phone": "06 11223344"
+		"name": "John Doe",
+    "properties_attributes": [
+      {
+        "type": "Property::Phone",
+        "name": "Phone",
+        "value": "+315811111111"
+      }
+		]
 	}
 }
 ```
@@ -267,7 +281,14 @@ curl --request PATCH \
   --header 'content-type: application/json' \
   --data '{
 	"customer": {
-		"phone": "06 11223344"
+		"name": "John Doe",
+    "properties_attributes": [
+      {
+        "type": "Property::Phone",
+        "name": "Phone",
+        "value": "+315811111111"
+      }
+		]
 	}
 }'
 ```
@@ -278,8 +299,13 @@ curl --request PATCH \
 {
 	"customer": {
 		"id": "297f2584-5f6c-475d-919f-f8791aa6a06a",
-		"name": "Jane Doe",
-		"phone": "06 11223344",
+		"name": "John Doe",
+    "properties": [
+      {
+        "id": "987bbea0-c6d3-4a6a-b770-746d9bf6b487",
+        ...
+      }
+    ]
 		...
 	}
 }

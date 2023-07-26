@@ -539,7 +539,6 @@ This can be done by appending <code>?api_key=API_KEY_HERE</code> to the end of y
         </span><span class="nl">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
         </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane Doe"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jane@doe.com"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string?"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"tax_region_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="nl">"discount_percentage"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
         </span><span class="nl">"deposit_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -610,11 +609,6 @@ This can be done by appending <code>?api_key=API_KEY_HERE</code> to the end of y
 <td>email</td>
 <td>String</td>
 <td>E-mail address of the customer</td>
-</tr>
-<tr>
-<td>phone</td>
-<td>String</td>
-<td>Customers phone number</td>
 </tr>
 <tr>
 <td>avatar_url</td>
@@ -739,7 +733,6 @@ This can be done by appending <code>?api_key=API_KEY_HERE</code> to the end of y
     </span><span class="nl">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jack Doe"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jack@doe.com"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1598580108"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"properties_attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
                 </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Property::Address"</span><span class="p">,</span><span class="w">
@@ -749,7 +742,12 @@ This can be done by appending <code>?api_key=API_KEY_HERE</code> to the end of y
         </span><span class="nl">"zipcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8937AH"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Leeuwarden"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Netherlands"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Property::Phone"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Phone"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+315812345678"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
         </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -774,7 +772,12 @@ This can be done by appending <code>?api_key=API_KEY_HERE</code> to the end of y
         "zipcode": "8937AH",
         "city": "Leeuwarden",
         "country": "Netherlands"
-            }
+            },
+      {
+        "type": "Property::Phone",
+        "name": "Phone",
+        "value": "+315812345678"
+      }
         ]
     }
 }'</span>
@@ -831,7 +834,14 @@ This can be done by appending <code>?api_key=API_KEY_HERE</code> to the end of y
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06 11223344"</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Doe"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"properties_attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Property::Phone"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Phone"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+315811111111"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
@@ -843,7 +853,14 @@ This can be done by appending <code>?api_key=API_KEY_HERE</code> to the end of y
   <span class="nt">--header</span> <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
   <span class="nt">--data</span> <span class="s1">'{
     "customer": {
-        "phone": "06 11223344"
+        "name": "John Doe",
+    "properties_attributes": [
+      {
+        "type": "Property::Phone",
+        "name": "Phone",
+        "value": "+315811111111"
+      }
+        ]
     }
 }'</span>
 </code></pre></div>
@@ -853,8 +870,13 @@ This can be done by appending <code>?api_key=API_KEY_HERE</code> to the end of y
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"297f2584-5f6c-475d-919f-f8791aa6a06a"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane Doe"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06 11223344"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Doe"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"987bbea0-c6d3-4a6a-b770-746d9bf6b487"</span><span class="p">,</span><span class="w">
+        </span><span class="err">...</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
         </span><span class="err">...</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">

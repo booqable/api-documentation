@@ -13,6 +13,7 @@ includes:
   - orders
   - planning
   - lines
+  - tags
 
 search: false
 ---

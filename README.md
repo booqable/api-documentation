@@ -21,6 +21,7 @@ You're going to need:
 
 ```shell
 # either run this to run locally
+asdf install
 bundle install
 bundle exec middleman server
 

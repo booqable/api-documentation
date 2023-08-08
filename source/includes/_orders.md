@@ -246,6 +246,26 @@ This endpoint will retrieve a single order by id or number
 
 ## Update order
 
+Updates an existing order.
+
+### Parameters
+
+| Parameter                    | Type     | Description                         |
+|------------------------------|----------|-------------------------------------|
+| customer_id                  | Integer  | The id of the customer              |
+| starts_at                    | DateTime | Start date and time of the order    |
+| stops_at                     | DateTime | Stop date and time of the order     |
+| start_location_id            | Integer  | The id of the start location        |
+| stop_location_id             | Integer  | The id of the stop location         |
+| discount_type                | String   | The type of discount                |
+| discount_percentage          | Integer  | The percentage of the discount      |
+| discount_in_cents            | Integer  | The amount of the discount in cents |
+| coupon_id                    | Integer  | The id of the coupon                |
+| deposit_type                 | String   | The type of deposit                 |
+| deposit_value                | Integer  | The amount of the deposit in cents  |
+| tax_region_id                | Integer  | The id of the tax region            |
+| override_period_restrictions | Boolean  | Override period restrictions        |
+
 > Request body example
 
 ```json

@@ -264,7 +264,6 @@ Updates an existing order.
 | deposit_type                 | String   | The type of deposit                 |
 | deposit_value                | Integer  | The amount of the deposit in cents  |
 | tax_region_id                | Integer  | The id of the tax region            |
-| start_location_id            | Integer  | The id of the start location        |
 | override_period_restrictions | Boolean  | Override period restrictions        |
 
 > Request body example

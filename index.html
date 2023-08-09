@@ -304,7 +304,7 @@
   color: #859900;
 }
     </style>
-    <link href="stylesheets/screen-b635678b.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/screen-022a593d.css" rel="stylesheet" media="screen" />
     <link href="stylesheets/print-7f861aa6.css" rel="stylesheet" media="print" />
       <script src="javascripts/all_nosearch-ec00d1ce.js"></script>
 
@@ -461,6 +461,17 @@
                   </li>
                   <li>
                     <a href="#remove-a-line" class="toc-h2 toc-link" data-title="Remove a line">Remove a line</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#tags" class="toc-h1 toc-link" data-title="Tags">Tags</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#add-a-tag" class="toc-h2 toc-link" data-title="Add a tag">Add a tag</a>
+                  </li>
+                  <li>
+                    <a href="#remove-a-tag" class="toc-h2 toc-link" data-title="Remove a tag">Remove a tag</a>
                   </li>
               </ul>
           </li>
@@ -1806,6 +1817,82 @@ It has the following attributes:</p>
 <p><code>GET /orders/:id</code> or
 <code>GET /orders/:number</code></p>
 <h2 id='update-order'>Update order</h2>
+<p>Updates an existing order.</p>
+<h3 id='parameters'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>customer_id</td>
+<td>Integer</td>
+<td>The id of the customer</td>
+</tr>
+<tr>
+<td>starts_at</td>
+<td>DateTime</td>
+<td>Start date and time of the order</td>
+</tr>
+<tr>
+<td>stops_at</td>
+<td>DateTime</td>
+<td>Stop date and time of the order</td>
+</tr>
+<tr>
+<td>start_location_id</td>
+<td>Integer</td>
+<td>The id of the start location</td>
+</tr>
+<tr>
+<td>stop_location_id</td>
+<td>Integer</td>
+<td>The id of the stop location</td>
+</tr>
+<tr>
+<td>discount_type</td>
+<td>String</td>
+<td>The type of discount</td>
+</tr>
+<tr>
+<td>discount_percentage</td>
+<td>Integer</td>
+<td>The percentage of the discount</td>
+</tr>
+<tr>
+<td>discount_in_cents</td>
+<td>Integer</td>
+<td>The amount of the discount in cents</td>
+</tr>
+<tr>
+<td>coupon_id</td>
+<td>Integer</td>
+<td>The id of the coupon</td>
+</tr>
+<tr>
+<td>deposit_type</td>
+<td>String</td>
+<td>The type of deposit</td>
+</tr>
+<tr>
+<td>deposit_value</td>
+<td>Integer</td>
+<td>The amount of the deposit in cents</td>
+</tr>
+<tr>
+<td>tax_region_id</td>
+<td>Integer</td>
+<td>The id of the tax region</td>
+</tr>
+<tr>
+<td>override_period_restrictions</td>
+<td>Boolean</td>
+<td>Override period restrictions</td>
+</tr>
+</tbody></table>
+
 <blockquote>
 <p>Request body example</p>
 </blockquote>
@@ -2509,6 +2596,81 @@ Canceling a reserved order will free all the products that were reserved with it
 <p>Delete specified line</p>
 <h3 id='http-request-4'>HTTP Request</h3>
 <p><code>DELETE /orders/:order_id/lines/:id</code></p>
+<h1 id='tags'>Tags</h1>
+<p>POST /tags/add?order_id=1&amp;name=delivery</p>
+
+<p>POST /tags/remove?order_id=1&amp;name=delivery</p>
+<h2 id='add-a-tag'>Add a tag</h2>
+<p>Adds a tag to a resource.
+A resource could be an order, customer, product group, bundle or document.</p>
+<h3 id='resource-parameters'>Resource parameters</h3>
+<p>Supply one of the following parameters to add a tag to a resource.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>order_id</strong></td>
+<td>Id of the order you want to add the tag to.</td>
+</tr>
+<tr>
+<td><strong>customer_id</strong></td>
+<td>Id of the customer you want to add the tag to.</td>
+</tr>
+<tr>
+<td><strong>product_group_id</strong></td>
+<td>Id of the product group you want to add the tag to.</td>
+</tr>
+<tr>
+<td><strong>bundle_id</strong></td>
+<td>Id of the bundle you want to add the tag to.</td>
+</tr>
+<tr>
+<td><strong>document_id</strong></td>
+<td>Id of the document you want to add the tag to.</td>
+</tr>
+</tbody></table>
+
+<p><code>POST /tags/add?order_id=:order_id&amp;name=:name</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>order_id</strong></td>
+<td>Id of the order you want to add the tag to (or any other resource id)</td>
+</tr>
+<tr>
+<td><strong>name</strong></td>
+<td>Name of the tag you want to add.</td>
+</tr>
+</tbody></table>
+<h2 id='remove-a-tag'>Remove a tag</h2>
+<p>Removes a tag from an order.</p>
+
+<p><code>POST /tags/remove?order_id=:order_id&amp;name=:name</code></p>
+<h3 id='query-parameters-2'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>order_id</strong></td>
+<td>Id of the order you want to add the tag to (or any other resource id)</td>
+</tr>
+<tr>
+<td><strong>name</strong></td>
+<td>Name of the tag you want to remove.</td>
+</tr>
+</tbody></table>
 
       </div>
       <div class="dark-box">

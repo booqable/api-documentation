@@ -1,6 +1,6 @@
 # Booqable API Documentation
 
-This repository contains the source for the Booqable API documentation
+This repository contains the source for the Booqable API documentation https://developers.booqable.com/
 
 ### Warning: Our API is still in Beta and we might introduce non-backwards compatible changes in the future.
 

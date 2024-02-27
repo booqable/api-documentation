@@ -12,26 +12,22 @@ jobs:
 
     strategy:
       matrix:
-        ruby-version: [2.5, 2.6, 2.7]
+        ruby-version: [2.6, 2.7, '3.0', 3.1, 3.2]
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: ${{ matrix.ruby-version }}
 
-    - uses: actions/cache@v2
+    - uses: actions/cache@v3
       with:
         path: vendor/bundle
         key: gems-${{ runner.os }}-${{ matrix.ruby-version }}-${{ hashFiles('**/Gemfile.lock') }}
         restore-keys: |
           gems-${{ runner.os }}-${{ matrix.ruby-version }}-
           gems-${{ runner.os }}-
-
-    # necessary to get ruby 2.3 to work nicely with bundler vendor/bundle cache
-    # can remove once ruby 2.3 is no longer supported
-    - run: gem update --system
 
     - run: bundle config set deployment 'true'
     - name: bundle install

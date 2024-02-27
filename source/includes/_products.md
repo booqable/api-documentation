@@ -356,6 +356,43 @@ curl --request POST \
 
 `POST /product_groups/:id/restore`
 
+## Check availability
+
+> Example request
+
+```shell
+curl --request GET \
+  --url 'https://company.booqable.com/api/1/products/23b6445d-c846-404b-8628-acb9023d8e5c/availability?till=01-02-2018&from=01-01-2018
+```
+
+> This request returns JSON structured like this
+
+```json
+{ "available": 5,
+  "needed": 0,
+  "plannable": 5,
+  "planned": 0,
+  "stock_count": 5
+}
+```
+
+Provides an availability overview of the specified product in the provided timeframe
+
+### HTTP Request
+
+`GET /products/:product_id/availablility/?from=:from&till=:till`
+
+### Query parameters
+
+| Parameter  | Description                                  | Available options                        |
+| ---------- | -------------------------------------------- | ---------------------------------------- |
+| **from**   | Start date                                   |                                          |
+| **till**   | End date                                     |                                          |
+
+Required in **bold**
+
+<aside class="notice">An empty response will be sent if the request is not valid</aside>
+
 ## Show product pricing structures
 
 > Example request

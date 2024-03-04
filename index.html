@@ -382,6 +382,9 @@
                     <a href="#restore-product-group" class="toc-h2 toc-link" data-title="Restore product group">Restore product group</a>
                   </li>
                   <li>
+                    <a href="#check-availability" class="toc-h2 toc-link" data-title="Check availability">Check availability</a>
+                  </li>
+                  <li>
                     <a href="#show-product-pricing-structures" class="toc-h2 toc-link" data-title="Show product pricing structures">Show product pricing structures</a>
                   </li>
               </ul>
@@ -1358,6 +1361,49 @@ A product will always belong to a product group.</p>
   <span class="nt">--url</span> <span class="s1">'https://company.booqable.com/api/1/product_groups/6107b3cc-03a8-4935-906c-20e2c33db7e0/restore'</span>
 </code></pre></div><h3 id='http-request-6'>HTTP Request</h3>
 <p><code>POST /product_groups/:id/restore</code></p>
+<h2 id='check-availability'>Check availability</h2>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> GET <span class="se">\</span>
+  <span class="nt">--url</span> <span class="s1">'https://company.booqable.com/api/1/products/23b6445d-c846-404b-8628-acb9023d8e5c/availability?till=01-02-2018&amp;from=01-01-2018
+</span></code></pre></div>
+<blockquote>
+<p>This request returns JSON structured like this</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="nl">"available"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"needed"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"plannable"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"planned"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"stock_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Provides an availability overview of the specified product in the provided timeframe</p>
+<h3 id='http-request-7'>HTTP Request</h3>
+<p><code>GET /products/:product_id/availablility/?from=:from&amp;till=:till</code></p>
+<h3 id='query-parameters-2'>Query parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Available options</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>from</strong></td>
+<td>Start date</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>till</strong></td>
+<td>End date</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p>Required in <strong>bold</strong></p>
+
+<aside class="notice">An empty response will be sent if the request is not valid</aside>
 <h2 id='show-product-pricing-structures'>Show product pricing structures</h2>
 <blockquote>
 <p>Example request</p>
@@ -1407,7 +1453,7 @@ A product will always belong to a product group.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Allows you to get the pricing structure of the product</p>
-<h3 id='http-request-7'>HTTP Request</h3>
+<h3 id='http-request-8'>HTTP Request</h3>
 <p><code>GET /products/:product_id/prices</code></p>
 
 <aside class="notice">

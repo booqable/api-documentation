@@ -150,10 +150,13 @@ This endpoint retrieves all product groups and can paginated
 
 ### Query parameters
 
-| Parameter | Default | Description                                            |
-| --------- | ------- | ------------------------------------------------------ |
-| page      | 1       | Which page to display                                  |
-| per       | nil     | If set it limits the number of product groups per page |
+| Parameter   | Default | Description                                                                                        |
+|-------------|---------|----------------------------------------------------------------------------------------------------|
+| page        | 1       | Which page to display                                                                              |
+| per         | nil     | If set it limits the number of product groups per page                                             |
+| category    | nil     | Filter products groups on a specific category, use the category code (slug) as the parameter value |
+| category_id | nil     | Filter products groups on a specific category, use the category id as the parameter value          |
+| tag         | nil     | Filter product groups on a specific tag, use the tag name as the parameter value                   |
 
 ### Meta
 

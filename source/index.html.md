@@ -30,7 +30,7 @@ The Booqable API is a RESTful API and as such is designed to have predictable, r
 To interact with our API, first, you have to have a means of authentification, here's how to create a shiny new API key.
 
 1. Go to your user account settings page
-`{company-name-here}.booqable.com/employee/current`
+`{company-name-here}.booqable.com/employees/current`
 2. Name your new key
 3. Click "Create new key"
 

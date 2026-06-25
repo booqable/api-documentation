@@ -67,7 +67,7 @@ The format is as follows:
 
 ```shell
 curl --request GET \
-  --url '[https://company.booqable.com/api/1/customers](https://company.booqable.com/api/1/customers)' \
+  --url 'https://company.booqable.com/api/1/customers' \
   --header 'Authorization: Bearer API_KEY_HERE'
 ```
 

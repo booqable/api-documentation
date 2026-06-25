@@ -67,7 +67,8 @@ The format is as follows:
 
 ```shell
 curl --request GET \
-  --url 'https://company.booqable.com/api/1/customers?api_key=API_KEY_HERE'
+  --url 'https://company.booqable.com/api/1/customers' \
+  --header 'Authorization: Bearer API_KEY_HERE'
 ```
 
 You authenticate to the Booqable API by providing on of your API keys in the request.
